@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qntnta.store — India Ka Apna Trend Store | Fashion, Electronics & More</title>
+<meta name="description" content="Qntnta.store - Shop trending fashion, electronics, footwear, beauty & home essentials with COD, Free Shipping & Easy Returns.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        qnt: {50:'#f2edff',100:'#e6dcff',200:'#c9b3ff',300:'#a385ff',400:'#7f56ff',500:'#6C2BFF',600:'#5a1ef0',700:'#4a15cc',800:'#3b119f',900:'#2b0c75'},
+        ink: '#0B0B14',
+        mint: '#00E6A0',
+        limex: '#D8FF3E',
+        cream: '#FFF7ED',
+        coral: '#FF3D2E'
+      },
+      fontFamily: {
+        display: ['Space Grotesk','sans-serif'],
+        body: ['Plus Jakarta Sans','sans-serif']
+      },
+      boxShadow: {
+        'soft': '0 20px 60px -15px rgba(108,43,255,0.25)',
+        'card': '0 10px 40px -10px rgba(0,0,0,0.12)',
+        'glow': '0 0 40px rgba(0,230,160,0.4)'
+      }
+    }
+  }
+}
+</script>
+<style>
+*{ -webkit-tap-highlight-color: transparent; }
+html{ scroll-behavior:smooth; }
+body{ font-family:'Plus Jakarta Sans',sans-serif; background:#FAFAFF; color:#0B0B14; overflow-x:hidden; }
+.font-display{ font-family:'Space Grotesk',sans-serif; }
+::-webkit-scrollbar{ width:9px; height:8px; }
+::-webkit-scrollbar-track{ background:#f1f1f1; }
+::-webkit-scrollbar-thumb{ background:linear-gradient(180deg,#6C2BFF,#00E6A0); border-radius:99px; }
+.grad-text{ background:linear-gradient(92deg,#6C2BFF 0%,#FF3D8A 50%,#FF8A00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.grad-bg{ background:linear-gradient(135deg,#6C2BFF 0%,#9D4EFF 40%,#FF3D8A 100%); }
+.glass{ background:rgba(255,255,255,0.75); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+.blob{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; pointer-events:none; }
+@keyframes floaty{ 0%,100%{ transform:translateY(0) rotate(0deg);} 50%{ transform:translateY(-18px) rotate(2deg);} }
+@keyframes floaty2{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(14px);} }
+@keyframes marquee{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-50%);} }
+@keyframes spin-slow{ to{ transform:rotate(360deg);} }
+@keyframes pulse-dot{ 0%,100%{ transform:scale(1); opacity:1;} 50%{ transform:scale(1.4); opacity:.6;} }
+@keyframes shimmer{ 0%{ background-position:-400px 0;} 100%{ background-position:400px 0;} }
+.animate-floaty{ animation:floaty 6s ease-in-out infinite; }
+.animate-floaty2{ animation:floaty2 5s ease-in-out infinite; }
+.marquee-track{ display:flex; width:max-content; animation:marquee 22s linear infinite; }
+.marquee-track:hover{ animation-play-state:paused; }
+.live-dot{ width:8px; height:8px; border-radius:99px; background:#00E6A0; animation:pulse-dot 1.5s infinite; box-shadow:0 0 10px #00E6A0; }
+.skeleton{ background:linear-gradient(90deg,#eee 25%,#e0e0e0 50%,#eee 75%); background-size:800px 100%; animation:shimmer 1.2s infinite; }
+.product-card{ transition:all .4s cubic-bezier(.16,1,.3,1); }
+.product-card:hover{ transform:translateY(-8px); box-shadow:0 25px 60px -15px rgba(108,43,255,.25); }
+.product-card .p-img{ transition:transform .7s cubic-bezier(.16,1,.3,1); }
+.product-card:hover .p-img{ transform:scale(1.1) rotate(1deg); }
+.product-card .hover-actions{ opacity:0; transform:translateY(12px); transition:all .35s ease; }
+.product-card:hover .hover-actions{ opacity:1; transform:translateY(0); }
+.cat-card img{ transition:transform .6s ease; }
+.cat-card:hover img{ transform:scale(1.12); }
+.drawer{ transition:transform .5s cubic-bezier(.16,1,.3,1); }
+.modal-bg{ transition:opacity .3s ease; }
+.modal-box{ transition:all .4s cubic-bezier(.16,1,.3,1); }
+.reveal{ opacity:0; transform:translateY(35px); transition:all .8s cubic-bezier(.16,1,.3,1); }
+.reveal.visible{ opacity:1; transform:translateY(0); }
+.toast-in{ animation:toastIn .45s cubic-bezier(.16,1,.3,1) forwards; }
+@keyframes toastIn{ from{ transform:translateX(100%); opacity:0;} to{ transform:translateX(0); opacity:1;} }
+.toast-out{ animation:toastOut .4s ease forwards; }
+@keyframes toastOut{ to{ transform:translateX(120%); opacity:0;} }
+.no-scrollbar::-webkit-scrollbar{ display:none; }
+.no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+input[type=range]{ accent-color:#6C2BFF; }
+.pill-active{ background:#0B0B14 !important; color:white !important; border-color:#0B0B14 !important; }
+.tick{ background:rgba(255,255,255,.12); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.2); }
+.check-dot{ width:36px; height:36px; border-radius:99px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; }
+.step-line{ height:2px; flex:1; background:#e5e7eb; }
+.list-view .p-grid{ grid-template-columns:1fr !important; }
+.stars{ color:#FFB800; letter-spacing:1px; }
+.hero-grid-bg{ background-image:radial-gradient(#d9ccff 1.5px, transparent 1.5px); background-size:26px 26px; }
+.tilt{ transform-style:preserve-3d; transition:transform .2s ease-out; }
+.confetti-piece{ position:absolute; width:10px; height:14px; top:-20px; animation:fall linear forwards; }
+@keyframes fall{ to{ transform:translateY(110vh) rotate(720deg); } }
+.zoom-img{ cursor:zoom-in; }
+.footer-link{ position:relative; }
+.footer-link::after{ content:''; position:absolute; left:0; bottom:-3px; width:0; height:2px; background:#00E6A0; transition:width .3s; }
+.footer-link:hover::after{ width:100%; }
+.coupon-dash{ background-image:linear-gradient(90deg,#6C2BFF 50%, transparent 50%); background-size:12px 2px; background-repeat:repeat-x; background-position:bottom; }
+@media(max-width:640px){ .hero-h{ font-size:2.6rem !important; line-height:1.05 !important; } }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- TOP ANNOUNCEMENT -->
+<div class="bg-ink text-white text-[12px] sm:text-[13px] py-2 overflow-hidden relative z-[60]">
+  <div class="marquee-track gap-0 font-semibold tracking-wide">
+    <div class="flex items-center gap-10 pr-10 whitespace-nowrap px-4">
+      <span>🚚 FREE SHIPPING ON ORDERS ABOVE ₹499</span><span class="text-mint">●</span>
+      <span>💵 CASH ON DELIVERY AVAILABLE</span><span class="text-mint">●</span>
+      <span>🎉 USE CODE <span class="bg-limex text-black px-2 py-0.5 rounded font-display font-bold">QNTNTA10</span> FOR 10% OFF</span><span class="text-mint">●</span>
+      <span>↩️ 7-DAY EASY RETURNS</span><span class="text-mint">●</span>
+      <span>⚡ FESTIVE MEGA SALE — UPTO 70% OFF</span><span class="text-mint">●</span>
+    </div>
+    <div class="flex items-center gap-10 pr-10 whitespace-nowrap px-4">
+      <span>🚚 FREE SHIPPING ON ORDERS ABOVE ₹499</span><span class="text-mint">●</span>
+      <span>💵 CASH ON DELIVERY AVAILABLE</span><span class="text-mint">●</span>
+      <span>🎉 USE CODE <span class="bg-limex text-black px-2 py-0.5 rounded font-display font-bold">QNTNTA10</span> FOR 10% OFF</span><span class="text-mint">●</span>
+      <span>↩️ 7-DAY EASY RETURNS</span><span class="text-mint">●</span>
+      <span>⚡ FESTIVE MEGA SALE — UPTO 70% OFF</span><span class="text-mint">●</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="header" class="sticky top-0 z-50 glass border-b border-black/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+    <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center"><i class="fa-solid fa-bars"></i></button>
+    <a href="#home" class="flex items-center gap-2 group">
+      <div class="w-10 h-10 rounded-2xl grad-bg flex items-center justify-center text-white font-display font-bold text-xl shadow-soft group-hover:rotate-12 transition-transform">Q</div>
+      <div class="leading-none">
+        <div class="font-display font-bold text-[22px] tracking-tight">Qntnta<span class="grad-text">.store</span></div>
+        <div class="text-[10px] font-bold tracking-[0.2em] text-gray-500 flex items-center gap-1"><span class="live-dot"></span> INDIA KA TREND STORE</div>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 font-semibold text-[14px]">
+      <a href="#home" class="hover:text-qnt-500 transition">Home</a>
+      <a href="#categories" class="hover:text-qnt-500 transition">Categories</a>
+      <a href="#shop" class="hover:text-qnt-500 transition flex items-center gap-1">Shop <span class="bg-coral text-white text-[10px] px-1.5 py-0.5 rounded-md">HOT</span></a>
+      <a href="#deals" class="hover:text-qnt-500 transition">Deals</a>
+      <a href="#reviews" class="hover:text-qnt-500 transition">Reviews</a>
+      <a href="#contact" class="hover:text-qnt-500 transition">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <button id="searchBtn" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/5 hover:bg-ink hover:text-white transition flex items-center justify-center"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button id="authBtn" class="hidden sm:flex w-11 h-11 rounded-full bg-black/5 hover:bg-ink hover:text-white transition items-center justify-center"><i class="fa-regular fa-user"></i></button>
+      <button id="wishlistBtn" class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/5 hover:bg-ink hover:text-white transition flex items-center justify-center">
+        <i class="fa-regular fa-heart"></i>
+        <span id="wishlistCount" class="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-coral text-white text-[11px] font-bold flex items-center justify-center hidden">0</span>
+      </button>
+      <button id="cartBtn" class="relative flex items-center gap-2 bg-ink text-white pl-4 pr-2 py-2 rounded-full hover:bg-qnt-600 transition shadow-card">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="hidden sm:inline text-sm font-semibold">Cart</span>
+        <span id="cartCount" class="min-w-[28px] h-7 px-2 rounded-full bg-mint text-black text-[13px] font-display font-bold flex items-center justify-center">0</span>
+      </button>
+    </div>
+  </div>
+  <div id="headerSearchBar" class="hidden lg:block border-t border-black/5 bg-white/60">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex items-center gap-4 text-[13px] text-gray-600">
+      <span class="font-bold text-ink">Trending:</span>
+      <button onclick="quickSearch('headphones')" class="hover:text-qnt-600 hover:underline">Headphones</button>
+      <button onclick="quickSearch('sneakers')" class="hover:text-qnt-600 hover:underline">Sneakers</button>
+      <button onclick="quickSearch('watch')" class="hover:text-qnt-600 hover:underline">Smart Watch</button>
+      <button onclick="quickSearch('saree')" class="hover:text-qnt-600 hover:underline">Saree</button>
+      <button onclick="quickSearch('perfume')" class="hover:text-qnt-600 hover:underline">Perfume</button>
+      <button onclick="quickSearch('drone')" class="hover:text-qnt-600 hover:underline">Drone</button>
+      <span class="ml-auto hidden xl:flex items-center gap-2"><i class="fa-solid fa-location-dot text-qnt-500"></i> Delivering to 19,000+ Pincodes across India</span>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 z-[70] hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobile(false)"></div>
+  <div class="absolute left-0 top-0 h-full w-[300px] bg-white p-6 flex flex-col gap-2 shadow-2xl">
+    <div class="flex items-center justify-between mb-4">
+      <div class="font-display font-bold text-xl">Qntnta<span class="grad-text">.store</span></div>
+      <button onclick="toggleMobile(false)" class="w-9 h-9 rounded-full bg-black/5 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <a href="#home" onclick="toggleMobile(false)" class="p-3 rounded-xl hover:bg-cream font-semibold">🏠 Home</a>
+    <a href="#categories" onclick="toggleMobile(false)" class="p-3 rounded-xl hover:bg-cream font-semibold">📂 Categories</a>
+    <a href="#shop" onclick="toggleMobile(false)" class="p-3 rounded-xl hover:bg-cream font-semibold">🛍️ Shop All Products</a>
+    <a href="#deals" onclick="toggleMobile(false)" class="p-3 rounded-xl hover:bg-cream font-semibold">⚡ Flash Deals</a>
+    <a href="#reviews" onclick="toggleMobile(false)" class="p-3 rounded-xl hover:bg-cream font-semibold">⭐ Reviews</a>
+    <a href="#contact" onclick="toggleMobile(false)" class="p-3 rounded-xl hover:bg-cream font-semibold">📞 Contact</a>
+    <div class="mt-auto bg-ink text-white rounded-2xl p-4">
+      <div class="text-sm font-bold mb-1">Festive Offer!</div>
+      <div class="text-xs text-white/70 mb-3">Flat 10% OFF on first order</div>
+      <button onclick="copyCoupon('QNTNTA10');toggleMobile(false)" class="w-full bg-limex text-black font-bold py-2 rounded-xl text-sm">Copy: QNTNTA10</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home" class="relative overflow-hidden hero-grid-bg">
+  <div class="blob w-[500px] h-[500px] bg-qnt-300 -top-40 -left-40"></div>
+  <div class="blob w-[400px] h-[400px] bg-mint/60 top-20 right-0"></div>
+  <div class="blob w-[300px] h-[300px] bg-[#FF8A00]/30 bottom-0 left-1/3"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-14 lg:pt-16 lg:pb-20 grid lg:grid-cols-2 gap-10 items-center relative">
+    <div class="reveal visible">
+      <div class="inline-flex items-center gap-2 bg-white border border-black/10 rounded-full pl-2 pr-4 py-1.5 text-[12px] sm:text-[13px] font-bold shadow-card mb-5">
+        <span class="bg-ink text-white px-2.5 py-1 rounded-full flex items-center gap-1"><span class="live-dot"></span> LIVE</span>
+        New Collection 2026 — Diwali Dhamaka Sale is ON
+      </div>
+      <h1 class="hero-h font-display font-bold text-[3rem] sm:text-6xl lg:text-[4.6rem] leading-[1.02] tracking-tight">
+        India Ka Sabse <span class="grad-text">Trendy</span> Online Store<span class="text-qnt-500">.</span>
+      </h1>
+      <p class="mt-5 text-gray-600 text-[15px] sm:text-lg leading-relaxed max-w-lg">Fashion, Electronics, Beauty & Home — <b class="text-ink">24,000+ products</b>, COD available, 7-day returns aur superfast delivery. Ab shopping hogi full paisa-vasool!</p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#shop" class="group bg-ink text-white px-7 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-qnt-600 transition shadow-soft">Shop Now <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition"><i class="fa-solid fa-arrow-right"></i></span></a>
+        <a href="#deals" class="bg-white border-2 border-ink px-7 py-4 rounded-2xl font-bold hover:bg-limex hover:border-limex transition flex items-center gap-2"><i class="fa-solid fa-bolt text-coral"></i> Flash Deals</a>
+      </div>
+      <div class="mt-8 grid grid-cols-3 gap-4 max-w-md">
+        <div><div class="font-display font-bold text-2xl sm:text-3xl">50K+</div><div class="text-[12px] text-gray-500 font-semibold">Happy Customers</div></div>
+        <div class="border-x border-black/10 px-4"><div class="font-display font-bold text-2xl sm:text-3xl flex items-center gap-1">4.8 <i class="fa-solid fa-star text-[#FFB800] text-lg"></i></div><div class="text-[12px] text-gray-500 font-semibold">Avg. Rating</div></div>
+        <div><div class="font-display font-bold text-2xl sm:text-3xl">24K+</div><div class="text-[12px] text-gray-500 font-semibold">Products Live</div></div>
+      </div>
+      <div class="mt-6 flex items-center gap-3 text-[13px] font-semibold text-gray-600">
+        <div class="flex -space-x-2">
+          <img src="https://i.pravatar.cc/64?img=12" class="w-8 h-8 rounded-full border-2 border-white" alt="user">
+          <img src="https://i.pravatar.cc/64?img=32" class="w-8 h-8 rounded-full border-2 border-white" alt="user">
+          <img src="https://i.pravatar.cc/64?img=45" class="w-8 h-8 rounded-full border-2 border-white" alt="user">
+          <img src="https://i.pravatar.cc/64?img=56" class="w-8 h-8 rounded-full border-2 border-white" alt="user">
+        </div>
+        <span><b class="text-ink">2,300+ people</b> ordered in last 24 hrs</span>
+      </div>
+    </div>
+    <div class="relative reveal visible" id="heroVisual">
+      <div class="absolute inset-0 flex items-center justify-center"><div class="w-[340px] h-[340px] sm:w-[460px] sm:h-[460px] rounded-full grad-bg opacity-90 blur-[1px]"></div></div>
+      <div class="absolute inset-0 flex items-center justify-center"><div class="w-[380px] h-[380px] sm:w-[520px] sm:h-[520px] rounded-full border-[2px] border-dashed border-white/50" style="animation:spin-slow 30s linear infinite"></div></div>
+      <div class="relative tilt mx-auto w-full max-w-[420px]" id="tiltCard">
+        <div class="bg-white rounded-[28px] p-3 shadow-2xl rotate-2">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Featured Sneaker" class="rounded-[22px] h-[320px] sm:h-[380px] w-full object-cover">
+          <div class="flex items-center justify-between p-3">
+            <div><div class="font-display font-bold text-lg leading-tight">Nebula Air Sneakers</div><div class="text-sm text-gray-500">★ 4.7 • 12k reviews</div></div>
+            <div class="text-right"><div class="font-display font-bold text-xl text-qnt-600">₹3,499</div><div class="text-xs line-through text-gray-400">₹4,999</div></div>
+          </div>
+        </div>
+        <div class="absolute -left-4 sm:-left-16 top-8 bg-white rounded-2xl shadow-card p-3 flex items-center gap-3 animate-floaty">
+          <div class="w-11 h-11 rounded-xl bg-mint/20 flex items-center justify-center text-xl">🚚</div>
+          <div><div class="text-[13px] font-bold">Order Delivered</div><div class="text-[11px] text-gray-500">2 min ago • Jaipur</div></div>
+        </div>
+        <div class="absolute -right-2 sm:-right-10 top-1/3 bg-white rounded-2xl shadow-card p-3 animate-floaty2">
+          <div class="text-[11px] font-bold text-gray-500">FLASH SALE</div>
+          <div class="font-display font-bold text-2xl text-coral">-30%</div>
+          <div class="text-[11px] bg-ink text-white px-2 py-1 rounded-lg font-bold">Ends Soon</div>
+        </div>
+        <div class="absolute -left-3 sm:-left-12 bottom-10 bg-ink text-white rounded-2xl shadow-card p-3 flex items-center gap-3 animate-floaty2">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=200&q=80" class="w-12 h-12 rounded-xl object-cover" alt="headphone">
+          <div><div class="text-[13px] font-bold">Aura Headphones</div><div class="text-mint font-display font-bold">₹2,999 <span class="text-white/50 text-[11px] line-through font-body">₹5,999</span></div></div>
+          <button onclick="addToCart(1,1)" class="w-9 h-9 rounded-full bg-mint text-black flex items-center justify-center hover:scale-110 transition"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="absolute right-4 -bottom-5 bg-white rounded-full shadow-card px-4 py-2 flex items-center gap-2 text-[13px] font-bold"><i class="fa-solid fa-shield-halved text-mint"></i> 100% Genuine</div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-ink text-white py-3 overflow-hidden -rotate-1 scale-105 mb-6">
+    <div class="marquee-track font-display font-bold text-[14px] tracking-widest">
+      <div class="flex gap-10 pr-10 whitespace-nowrap"><span>FREE SHIPPING ✦ COD AVAILABLE ✦ 7-DAY RETURNS ✦ 100% GENUINE ✦ 24x7 SUPPORT ✦ UPI • CARDS • NETBANKING ✦</span><span>FREE SHIPPING ✦ COD AVAILABLE ✦ 7-DAY RETURNS ✦ 100% GENUINE ✦ 24x7 SUPPORT ✦ UPI • CARDS • NETBANKING ✦</span></div>
+      <div class="flex gap-10 pr-10 whitespace-nowrap"><span>FREE SHIPPING ✦ COD AVAILABLE ✦ 7-DAY RETURNS ✦ 100% GENUINE ✦ 24x7 SUPPORT ✦ UPI • CARDS • NETBANKING ✦</span><span>FREE SHIPPING ✦ COD AVAILABLE ✦ 7-DAY RETURNS ✦ 100% GENUINE ✦ 24x7 SUPPORT ✦ UPI • CARDS • NETBANKING ✦</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <div class="reveal bg-white rounded-2xl border border-black/5 p-4 flex items-center gap-3 shadow-card"><div class="w-12 h-12 rounded-2xl grad-bg text-white flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-truck-fast"></i></div><div><div class="font-bold text-[14px]">Free & Fast Delivery</div><div class="text-[12px] text-gray-500">2-5 days, 19k+ pincodes</div></div></div>
+    <div class="reveal bg-white rounded-2xl border border-black/5 p-4 flex items-center gap-3 shadow-card"><div class="w-12 h-12 rounded-2xl bg-ink text-limex flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-money-bill-wave"></i></div><div><div class="font-bold text-[14px]">COD Available</div><div class="text-[12px] text-gray-500">Pay on delivery, UPI too</div></div></div>
+    <div class="reveal bg-white rounded-2xl border border-black/5 p-4 flex items-center gap-3 shadow-card"><div class="w-12 h-12 rounded-2xl bg-mint text-black flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-rotate-left"></i></div><div><div class="font-bold text-[14px]">7-Day Returns</div><div class="text-[12px] text-gray-500">No-question easy returns</div></div></div>
+    <div class="reveal bg-white rounded-2xl border border-black/5 p-4 flex items-center gap-3 shadow-card"><div class="w-12 h-12 rounded-2xl bg-coral text-white flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-headset"></i></div><div><div class="font-bold text-[14px]">24x7 Hindi Support</div><div class="text-[12px] text-gray-500">Call / WhatsApp / Chat</div></div></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories" class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+  <div class="flex items-end justify-between mb-6 reveal">
+    <div><div class="text-qnt-600 font-bold text-[13px] tracking-[0.2em]">● SHOP BY CATEGORY</div><h2 class="font-display font-bold text-3xl sm:text-4xl mt-1">Explore <span class="grad-text">Categories</span></h2></div>
+    <a href="#shop" class="hidden sm:flex items-center gap-2 font-bold text-[14px] hover:text-qnt-600">View All <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+  <div id="catGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4"></div>
+</section>
+
+<!-- FLASH DEAL -->
+<section id="deals" class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+  <div class="reveal relative overflow-hidden rounded-[28px] bg-ink text-white p-6 sm:p-10 lg:p-12">
+    <div class="blob w-[400px] h-[400px] bg-qnt-600 top-0 right-0 opacity-60"></div>
+    <div class="blob w-[300px] h-[300px] bg-coral/50 bottom-0 left-20"></div>
+    <div class="grid lg:grid-cols-2 gap-8 items-center relative">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-coral px-4 py-1.5 rounded-full font-bold text-[13px]"><i class="fa-solid fa-bolt"></i> FLASH DEAL OF THE DAY</div>
+        <h3 class="font-display font-bold text-3xl sm:text-5xl mt-4 leading-tight">EchoPods Pro <br><span class="text-limex">ANC Earbuds</span> @ 50% OFF</h3>
+        <p class="text-white/70 mt-3 text-[14px] sm:text-[15px]">45H battery, ENC mic, Bluetooth 5.3, 13mm bass drivers. Sirf aaj ke liye — stock limited hai!</p>
+        <div class="flex items-center gap-3 mt-6">
+          <div class="tick rounded-2xl px-4 py-3 text-center min-w-[74px]"><div id="cdH" class="font-display font-bold text-3xl">05</div><div class="text-[11px] tracking-widest text-white/60 font-bold">HOURS</div></div>
+          <div class="font-display font-bold text-2xl">:</div>
+          <div class="tick rounded-2xl px-4 py-3 text-center min-w-[74px]"><div id="cdM" class="font-display font-bold text-3xl">42</div><div class="text-[11px] tracking-widest text-white/60 font-bold">MINS</div></div>
+          <div class="font-display font-bold text-2xl">:</div>
+          <div class="tick rounded-2xl px-4 py-3 text-center min-w-[74px]"><div id="cdS" class="font-display font-bold text-3xl text-limex">18</div><div class="text-[11px] tracking-widest text-white/60 font-bold">SECS</div></div>
+        </div>
+        <div class="mt-6 max-w-sm">
+          <div class="flex justify-between text-[12px] font-bold mb-2"><span>Sold: 847 / 1000</span><span class="text-coral">Hurry! 153 left</span></div>
+          <div class="h-3 rounded-full bg-white/15 overflow-hidden"><div class="h-full w-[84%] rounded-full bg-gradient-to-r from-limex via-mint to-qnt-400"></div></div>
+        </div>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <div><span class="font-display font-bold text-4xl text-limex">₹2,499</span> <span class="line-through text-white/50 text-lg">₹4,999</span></div>
+          <button onclick="addToCart(11,1);openCart()" class="bg-limex text-black font-bold px-7 py-3.5 rounded-2xl hover:bg-white transition flex items-center gap-2"><i class="fa-solid fa-bag-shopping"></i> Grab This Deal</button>
+        </div>
+      </div>
+      <div class="relative hidden sm:block">
+        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=700&q=80" alt="Earbuds" class="rounded-[24px] w-full h-[420px] object-cover shadow-2xl rotate-2">
+        <div class="absolute top-4 left-4 bg-white text-black font-display font-bold px-4 py-2 rounded-2xl -rotate-6 shadow-xl">-50% TODAY</div>
+        <div class="absolute bottom-4 right-4 glass !bg-white/90 rounded-2xl p-3 flex items-center gap-3 text-black rotate-1">
+          <div class="stars text-sm">★★★★★</div>
+          <div class="text-[12px] font-bold">4.9 • 8,200+ reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP / PRODUCT LISTING -->
+<section id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+  <div class="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+    <div><div class="text-qnt-600 font-bold text-[13px] tracking-[0.2em]">● FULL PRODUCT LIST</div><h2 class="font-display font-bold text-3xl sm:text-4xl mt-1">Shop All <span class="grad-text">Products</span> <span id="resultsCount" class="text-lg text-gray-400 font-body font-semibold"></span></h2></div>
+    <div class="flex items-center gap-2">
+      <button id="gridBtn" class="w-10 h-10 rounded-xl bg-ink text-white flex items-center justify-center"><i class="fa-solid fa-grip"></i></button>
+      <button id="listBtn" class="w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center"><i class="fa-solid fa-list"></i></button>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="reveal bg-white rounded-2xl border border-black/5 shadow-card p-4 mb-6 sticky top-[68px] sm:top-[104px] z-30 glass">
+    <div class="flex flex-col xl:flex-row gap-3 xl:items-center">
+      <div class="relative flex-1 min-w-[200px]">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        <input id="shopSearch" type="text" placeholder="Search products... (sneakers, watch, saree)" class="w-full bg-black/5 rounded-xl pl-11 pr-4 py-3 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500 focus:bg-white transition">
+      </div>
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="pills"></div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <select id="sortSelect" class="bg-black/5 rounded-xl px-4 py-3 text-[13px] font-bold outline-none cursor-pointer">
+          <option value="featured">Sort: Featured</option>
+          <option value="low">Price: Low → High</option>
+          <option value="high">Price: High → Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="discount">Biggest Discount</option>
+        </select>
+        <div class="flex items-center gap-2 bg-black/5 rounded-xl px-4 py-2.5">
+          <span class="text-[12px] font-bold whitespace-nowrap">Under <span id="priceLabel" class="text-qnt-600">₹60,000</span></span>
+          <input id="priceRange" type="range" min="500" max="60000" step="500" value="60000" class="w-24 sm:w-32">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="productGrid" class="p-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5"></div>
+
+  <div id="emptyState" class="hidden text-center py-16">
+    <div class="text-6xl mb-4">🔍</div>
+    <div class="font-display font-bold text-2xl">No products found</div>
+    <p class="text-gray-500 mt-2">Try a different search or reset filters</p>
+    <button onclick="resetFilters()" class="mt-4 bg-ink text-white px-6 py-3 rounded-xl font-bold">Reset Filters</button>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="loadMoreBtn" class="hidden bg-white border-2 border-ink px-8 py-3.5 rounded-2xl font-bold hover:bg-ink hover:text-white transition">Load More Products <i class="fa-solid fa-chevron-down ml-1"></i></button>
+  </div>
+</section>
+
+<!-- COUPON BANNER -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+  <div class="reveal grid md:grid-cols-3 gap-4">
+    <div class="rounded-[24px] grad-bg text-white p-6 relative overflow-hidden">
+      <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-white/15"></div>
+      <div class="text-[12px] font-bold tracking-widest opacity-80">FIRST ORDER</div>
+      <div class="font-display font-bold text-3xl mt-1">Flat 10% OFF</div>
+      <div class="coupon-dash pb-3 mt-2 mb-3 flex items-center justify-between"><span class="font-mono font-bold tracking-widest bg-white/20 px-3 py-1.5 rounded-lg">QNTNTA10</span><button onclick="copyCoupon('QNTNTA10')" class="text-[13px] font-bold bg-white text-qnt-700 px-4 py-2 rounded-xl hover:bg-limex hover:text-black transition">COPY</button></div>
+      <div class="text-[12px] opacity-80">Min. order ₹499 • Max discount ₹500</div>
+    </div>
+    <div class="rounded-[24px] bg-ink text-white p-6 relative overflow-hidden">
+      <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-mint/20"></div>
+      <div class="text-[12px] font-bold tracking-widest text-mint">FESTIVE SPECIAL</div>
+      <div class="font-display font-bold text-3xl mt-1">Flat 20% OFF</div>
+      <div class="coupon-dash pb-3 mt-2 mb-3 flex items-center justify-between"><span class="font-mono font-bold tracking-widest bg-white/15 px-3 py-1.5 rounded-lg">DIWALI20</span><button onclick="copyCoupon('DIWALI20')" class="text-[13px] font-bold bg-mint text-black px-4 py-2 rounded-xl hover:bg-white transition">COPY</button></div>
+      <div class="text-[12px] text-white/60">Min. order ₹999 • Max discount ₹1000</div>
+    </div>
+    <div class="rounded-[24px] bg-limex text-black p-6 relative overflow-hidden">
+      <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-black/10"></div>
+      <div class="text-[12px] font-bold tracking-widest opacity-70">FREE DELIVERY</div>
+      <div class="font-display font-bold text-3xl mt-1">Zero Shipping Fee</div>
+      <div class="coupon-dash !bg-black/20 pb-3 mt-2 mb-3 flex items-center justify-between"><span class="font-mono font-bold tracking-widest bg-black/10 px-3 py-1.5 rounded-lg">FREESHIP</span><button onclick="copyCoupon('FREESHIP')" class="text-[13px] font-bold bg-black text-white px-4 py-2 rounded-xl hover:bg-qnt-600 transition">COPY</button></div>
+      <div class="text-[12px] opacity-70">On any order • No minimum value</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP THE LOOK -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+  <div class="reveal text-center mb-6"><div class="text-qnt-600 font-bold text-[13px] tracking-[0.2em]">● #QNTNTASTYLE</div><h2 class="font-display font-bold text-3xl sm:text-4xl mt-1">Shop The <span class="grad-text">Look</span></h2><p class="text-gray-500 mt-2">Real customers, real style. Tag @qntnta.store to get featured.</p></div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+    <div class="reveal relative rounded-[22px] overflow-hidden group h-[280px] sm:h-[360px]"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="look"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div><div class="absolute bottom-4 left-4 right-4 text-white"><div class="font-bold">Festive Edit ✨</div><button onclick="filterByCategory('Fashion')" class="mt-2 bg-white text-black text-[12px] font-bold px-4 py-2 rounded-full">Shop Fashion →</button></div></div>
+    <div class="reveal relative rounded-[22px] overflow-hidden group h-[280px] sm:h-[360px]"><img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="look"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div><div class="absolute bottom-4 left-4 right-4 text-white"><div class="font-bold">Tech Essentials 🔥</div><button onclick="filterByCategory('Electronics')" class="mt-2 bg-white text-black text-[12px] font-bold px-4 py-2 rounded-full">Shop Electronics →</button></div></div>
+    <div class="reveal relative rounded-[22px] overflow-hidden group h-[280px] sm:h-[360px]"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="look"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div><div class="absolute bottom-4 left-4 right-4 text-white"><div class="font-bold">Street Style 👟</div><button onclick="filterByCategory('Footwear')" class="mt-2 bg-white text-black text-[12px] font-bold px-4 py-2 rounded-full">Shop Footwear →</button></div></div>
+    <div class="reveal relative rounded-[22px] overflow-hidden group h-[280px] sm:h-[360px]"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="look"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div><div class="absolute bottom-4 left-4 right-4 text-white"><div class="font-bold">Glow Up 💄</div><button onclick="filterByCategory('Beauty')" class="mt-2 bg-white text-black text-[12px] font-bold px-4 py-2 rounded-full">Shop Beauty →</button></div></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="bg-ink text-white py-14 mt-6 relative overflow-hidden">
+  <div class="blob w-[400px] h-[400px] bg-qnt-600 -top-20 left-1/3"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
+    <div class="reveal text-center mb-8"><div class="text-mint font-bold text-[13px] tracking-[0.2em]">● 50,000+ HAPPY CUSTOMERS</div><h2 class="font-display font-bold text-3xl sm:text-4xl mt-2">Log Kya <span class="text-limex">Kehete Hain?</span></h2></div>
+    <div class="relative">
+      <div id="reviewTrack" class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2"></div>
+      <div class="flex items-center justify-center gap-3 mt-6">
+        <button onclick="scrollReviews(-1)" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fa-solid fa-arrow-left"></i></button>
+        <div id="reviewDots" class="flex gap-2"></div>
+        <button onclick="scrollReviews(1)" class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+  <div class="reveal grad-bg rounded-[28px] p-8 sm:p-12 text-white text-center relative overflow-hidden">
+    <div class="absolute top-0 left-10 text-[120px] opacity-10 rotate-12">✉️</div>
+    <div class="absolute bottom-0 right-10 text-[120px] opacity-10 -rotate-12">🎁</div>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl relative">Get ₹200 OFF on First Order!</h2>
+    <p class="text-white/80 mt-2 relative">Join 1 Lakh+ subscribers. Exclusive deals, drops & coupons — seedha inbox mein.</p>
+    <form id="newsletterForm" class="mt-6 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto relative">
+      <input id="newsletterEmail" type="email" placeholder="Enter your email / mobile number" class="flex-1 rounded-2xl px-5 py-4 text-black font-medium outline-none text-[14px]">
+      <button type="submit" class="bg-ink px-8 py-4 rounded-2xl font-bold hover:bg-black transition whitespace-nowrap">Claim ₹200 OFF</button>
+    </form>
+    <div class="text-[12px] text-white/60 mt-3 relative">No spam. Unsubscribe anytime. T&C apply.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="bg-ink text-white pt-12 pb-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-8 border-b border-white/10">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2"><div class="w-10 h-10 rounded-2xl grad-bg flex items-center justify-center font-display font-bold text-xl">Q</div><div class="font-display font-bold text-2xl">Qntnta<span class="text-mint">.store</span></div></div>
+        <p class="text-white/60 text-[14px] mt-3 max-w-xs">India ka apna trend store. 24,000+ genuine products, COD, fast delivery aur best prices — sab kuch ek jagah.</p>
+        <div class="flex gap-2 mt-4">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-qnt-500 transition"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-qnt-500 transition"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-qnt-500 transition"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-qnt-500 transition"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-qnt-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="mt-4 flex items-center gap-2 text-[13px] text-white/70"><i class="fa-solid fa-phone text-mint"></i> 1800-419-0000 (Toll Free) • <i class="fa-solid fa-envelope text-mint"></i> care@qntnta.store</div>
+      </div>
+      <div><div class="font-display font-bold mb-4">Shop</div><div class="space-y-2.5 text-[14px] text-white/60"><a href="#shop" class="footer-link block hover:text-white">All Products</a><a href="#categories" class="footer-link block hover:text-white">Electronics</a><a href="#categories" class="footer-link block hover:text-white">Fashion</a><a href="#categories" class="footer-link block hover:text-white">Footwear</a><a href="#categories" class="footer-link block hover:text-white">Beauty</a><a href="#deals" class="footer-link block hover:text-white">Flash Deals</a></div></div>
+      <div><div class="font-display font-bold mb-4">Help</div><div class="space-y-2.5 text-[14px] text-white/60"><a href="#" class="footer-link block hover:text-white">Track Order</a><a href="#" class="footer-link block hover:text-white">Shipping Info</a><a href="#" class="footer-link block hover:text-white">Returns & Refunds</a><a href="#" class="footer-link block hover:text-white">Size Guide</a><a href="#" class="footer-link block hover:text-white">FAQs</a><a href="#" class="footer-link block hover:text-white">Bulk Orders</a></div></div>
+      <div><div class="font-display font-bold mb-4">Company</div><div class="space-y-2.5 text-[14px] text-white/60"><a href="#" class="footer-link block hover:text-white">About Us</a><a href="#" class="footer-link block hover:text-white">Careers</a><a href="#" class="footer-link block hover:text-white">Sell on Qntnta</a><a href="#" class="footer-link block hover:text-white">Privacy Policy</a><a href="#" class="footer-link block hover:text-white">Terms of Service</a></div>
+        <div class="mt-4 bg-white/10 rounded-2xl p-3"><div class="text-[12px] font-bold mb-2">We Accept</div><div class="flex flex-wrap gap-1.5 text-[11px] font-bold"><span class="bg-white text-black px-2 py-1 rounded">UPI</span><span class="bg-white text-black px-2 py-1 rounded">VISA</span><span class="bg-white text-black px-2 py-1 rounded">Mastercard</span><span class="bg-white text-black px-2 py-1 rounded">RuPay</span><span class="bg-white text-black px-2 py-1 rounded">COD</span></div></div>
+      </div>
+    </div>
+    <div class="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-white/50">
+      <div>© 2026 Qntnta.store • Made with ❤️ in India • Jaipur, Rajasthan</div>
+      <div class="flex items-center gap-2"><span class="live-dot"></span> All systems operational • 19,000+ pincodes served</div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP + WHATSAPP -->
+<button id="backToTop" class="fixed bottom-6 right-5 z-40 w-12 h-12 rounded-full bg-ink text-white shadow-2xl items-center justify-center hover:bg-qnt-600 transition hidden"><i class="fa-solid fa-arrow-up"></i></button>
+<a href="https://wa.me/9118004190000" target="_blank" class="fixed bottom-6 left-5 z-40 w-12 h-12 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:scale-110 transition text-xl"><i class="fa-brands fa-whatsapp"></i></a>
+
+<!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="fixed inset-0 z-[80] hidden">
+  <div class="absolute inset-0 bg-ink/80 backdrop-blur-md" onclick="toggleSearch(false)"></div>
+  <div class="relative max-w-2xl mx-auto mt-[8vh] px-4">
+    <div class="bg-white rounded-[24px] p-5 sm:p-6 shadow-2xl modal-box">
+      <div class="flex items-center gap-3 bg-black/5 rounded-2xl px-5 py-4">
+        <i class="fa-solid fa-magnifying-glass text-qnt-600 text-lg"></i>
+        <input id="globalSearch" type="text" placeholder="Search sneakers, headphones, saree, watch..." class="flex-1 bg-transparent outline-none font-semibold text-[15px]">
+        <button onclick="toggleSearch(false)" class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center"><i class="fa-solid fa-xmark text-sm"></i></button>
+      </div>
+      <div class="mt-3 flex flex-wrap gap-2 text-[12px] font-bold"><span class="text-gray-400 py-2">Popular:</span><button onclick="quickSearch('sneakers')" class="bg-cream px-3 py-2 rounded-full hover:bg-ink hover:text-white transition">Sneakers</button><button onclick="quickSearch('watch')" class="bg-cream px-3 py-2 rounded-full hover:bg-ink hover:text-white transition">Smart Watch</button><button onclick="quickSearch('perfume')" class="bg-cream px-3 py-2 rounded-full hover:bg-ink hover:text-white transition">Perfume</button><button onclick="quickSearch('hoodie')" class="bg-cream px-3 py-2 rounded-full hover:bg-ink hover:text-white transition">Hoodie</button><button onclick="quickSearch('camera')" class="bg-cream px-3 py-2 rounded-full hover:bg-ink hover:text-white transition">Camera</button></div>
+      <div id="searchResults" class="mt-4 max-h-[45vh] overflow-y-auto space-y-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div id="cartOverlay" class="fixed inset-0 z-[80] hidden"><div class="absolute inset-0 bg-black/50 backdrop-blur-sm modal-bg" onclick="openCart(false)"></div>
+  <div id="cartDrawer" class="drawer absolute right-0 top-0 h-full w-full sm:w-[440px] bg-white shadow-2xl flex flex-col translate-x-full">
+    <div class="p-5 border-b border-black/5 flex items-center justify-between bg-cream/50">
+      <div><div class="font-display font-bold text-xl flex items-center gap-2"><i class="fa-solid fa-bag-shopping text-qnt-600"></i> Your Cart <span id="cartDrawerCount" class="bg-ink text-white text-[12px] px-2 py-0.5 rounded-full">0</span></div><div id="freeShipMsg" class="text-[12px] text-gray-500 font-semibold mt-1">Add ₹499 for FREE shipping</div></div>
+      <button onclick="openCart(false)" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-black hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="px-5 pt-3"><div class="h-2 rounded-full bg-black/5 overflow-hidden"><div id="freeShipBar" class="h-full w-0 bg-gradient-to-r from-qnt-500 to-mint rounded-full transition-all duration-500"></div></div></div>
+    <div id="cartItems" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+    <div class="p-5 border-t border-black/5 bg-white space-y-3">
+      <div class="flex gap-2"><input id="promoInput" type="text" placeholder="Coupon code (try QNTNTA10)" class="flex-1 bg-black/5 rounded-xl px-4 py-3 text-[13px] font-bold uppercase outline-none focus:ring-2 focus:ring-qnt-500"><button onclick="applyPromo()" class="bg-ink text-white px-5 rounded-xl font-bold text-[13px] hover:bg-qnt-600 transition">Apply</button></div>
+      <div id="promoMsg" class="text-[12px] font-bold hidden"></div>
+      <div class="text-[13px] space-y-1.5 font-medium">
+        <div class="flex justify-between text-gray-600"><span>Subtotal</span><span id="cartSubtotal" class="font-bold text-ink">₹0</span></div>
+        <div class="flex justify-between text-gray-600"><span>Discount</span><span id="cartDiscount" class="font-bold text-green-600">-₹0</span></div>
+        <div class="flex justify-between text-gray-600"><span>Shipping</span><span id="cartShipping" class="font-bold text-ink">₹49</span></div>
+        <div class="flex justify-between font-display font-bold text-lg pt-2 border-t border-dashed"><span>Total</span><span id="cartTotal" class="text-qnt-600">₹0</span></div>
+      </div>
+      <button onclick="startCheckout()" class="w-full grad-bg text-white font-bold py-4 rounded-2xl hover:opacity-90 transition flex items-center justify-center gap-2 shadow-soft">Proceed to Checkout <i class="fa-solid fa-arrow-right"></i></button>
+      <button onclick="openCart(false)" class="w-full text-[13px] font-bold text-gray-500 hover:text-ink">← Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- WISHLIST DRAWER -->
+<div id="wishOverlay" class="fixed inset-0 z-[80] hidden"><div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="openWishlist(false)"></div>
+  <div id="wishDrawer" class="drawer absolute right-0 top-0 h-full w-full sm:w-[400px] bg-white shadow-2xl flex flex-col translate-x-full">
+    <div class="p-5 border-b flex items-center justify-between"><div class="font-display font-bold text-xl"><i class="fa-regular fa-heart text-coral"></i> Wishlist</div><button onclick="openWishlist(false)" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="wishlistItems" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+  </div>
+</div>
+
+<!-- QUICK VIEW MODAL -->
+<div id="qvOverlay" class="fixed inset-0 z-[85] hidden items-center justify-center p-4"><div class="absolute inset-0 bg-ink/70 backdrop-blur-md modal-bg" onclick="closeQuickView()"></div>
+  <div id="qvBox" class="modal-box relative bg-white rounded-[28px] w-full max-w-4xl max-h-[92vh] overflow-y-auto shadow-2xl scale-95 opacity-0">
+    <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-black"><i class="fa-solid fa-xmark"></i></button>
+    <div class="grid md:grid-cols-2">
+      <div class="relative bg-cream p-4"><img id="qvImg" src="" class="w-full h-[300px] md:h-[480px] object-cover rounded-[20px]" alt="product"><div id="qvBadge" class="absolute top-7 left-7 bg-coral text-white text-[12px] font-bold px-3 py-1.5 rounded-full"></div>
+        <div class="flex gap-2 mt-3"><img id="qvThumb1" class="w-16 h-16 rounded-xl object-cover border-2 border-qnt-500 cursor-pointer" src="" alt=""><img id="qvThumb2" class="w-16 h-16 rounded-xl object-cover border-2 border-transparent opacity-70 cursor-pointer" src="" alt=""><img id="qvThumb3" class="w-16 h-16 rounded-xl object-cover border-2 border-transparent opacity-70 cursor-pointer" src="" alt=""></div>
+      </div>
+      <div class="p-6 sm:p-8">
+        <div id="qvCat" class="text-qnt-600 font-bold text-[12px] tracking-widest"></div>
+        <h3 id="qvName" class="font-display font-bold text-2xl sm:text-3xl mt-1 leading-tight"></h3>
+        <div class="flex items-center gap-2 mt-2"><span id="qvStars" class="stars text-sm"></span><span id="qvReviews" class="text-[13px] text-gray-500 font-semibold"></span><span class="bg-green-100 text-green-700 text-[11px] font-bold px-2 py-0.5 rounded-full">✓ In Stock</span></div>
+        <div class="flex items-end gap-3 mt-4"><span id="qvPrice" class="font-display font-bold text-4xl text-qnt-600"></span><span id="qvMrp" class="line-through text-gray-400 text-lg"></span><span id="qvOff" class="bg-mint/20 text-green-700 font-bold text-[13px] px-2.5 py-1 rounded-full"></span></div>
+        <div class="text-[12px] text-gray-500 font-semibold mt-1">Inclusive of all taxes • EMI from <span id="qvEmi" class="text-ink font-bold"></span>/mo</div>
+        <p id="qvDesc" class="text-gray-600 text-[14px] leading-relaxed mt-4"></p>
+        <div class="mt-4"><div class="font-bold text-[13px] mb-2">Color: <span id="qvColorName" class="text-qnt-600"></span></div><div id="qvColors" class="flex gap-2"></div></div>
+        <div id="qvSizeWrap" class="mt-3"><div class="font-bold text-[13px] mb-2">Size:</div><div id="qvSizes" class="flex flex-wrap gap-2"></div></div>
+        <div class="flex items-center gap-3 mt-5">
+          <div class="flex items-center bg-black/5 rounded-xl overflow-hidden"><button onclick="qvQtyChange(-1)" class="w-11 h-12 flex items-center justify-center hover:bg-black/10 font-bold text-lg">−</button><span id="qvQty" class="w-10 text-center font-display font-bold text-lg">1</span><button onclick="qvQtyChange(1)" class="w-11 h-12 flex items-center justify-center hover:bg-black/10 font-bold text-lg">+</button></div>
+          <button id="qvAddBtn" class="flex-1 bg-ink text-white font-bold py-3.5 rounded-2xl hover:bg-qnt-600 transition flex items-center justify-center gap-2"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+          <button id="qvWishBtn" class="w-[52px] h-[52px] rounded-2xl border-2 border-black/10 flex items-center justify-center hover:border-coral hover:text-coral transition text-lg"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <button id="qvBuyBtn" class="w-full mt-3 grad-bg text-white font-bold py-4 rounded-2xl hover:opacity-90 transition shadow-soft">⚡ Buy Now — Cash on Delivery Available</button>
+        <div class="grid grid-cols-3 gap-2 mt-4 text-center text-[11px] font-bold text-gray-600">
+          <div class="bg-black/[0.03] rounded-xl p-2.5"><i class="fa-solid fa-truck-fast text-qnt-600 text-lg block mb-1"></i>Free Delivery<br><span class="text-gray-400">2-5 Days</span></div>
+          <div class="bg-black/[0.03] rounded-xl p-2.5"><i class="fa-solid fa-rotate-left text-qnt-600 text-lg block mb-1"></i>7-Day<br><span class="text-gray-400">Easy Return</span></div>
+          <div class="bg-black/[0.03] rounded-xl p-2.5"><i class="fa-solid fa-shield-halved text-qnt-600 text-lg block mb-1"></i>1 Year<br><span class="text-gray-400">Warranty*</span></div>
+        </div>
+        <div class="mt-4 text-[12px] text-gray-500 font-semibold flex items-center gap-2"><i class="fa-solid fa-lock text-green-600"></i> Secure checkout • UPI, Cards, Netbanking & COD accepted • Sold by Qntnta Retail</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div id="coOverlay" class="fixed inset-0 z-[90] hidden items-center justify-center p-4"><div class="absolute inset-0 bg-ink/80 backdrop-blur-md"></div>
+  <div class="relative bg-white rounded-[28px] w-full max-w-3xl max-h-[92vh] overflow-y-auto shadow-2xl">
+    <div class="sticky top-0 bg-white/95 backdrop-blur p-5 border-b flex items-center justify-between z-10 rounded-t-[28px]">
+      <div class="font-display font-bold text-xl">🔒 Secure Checkout</div>
+      <button onclick="closeCheckout()" class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center hover:bg-black hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="p-5 sm:p-7">
+      <div class="flex items-center gap-2 mb-6">
+        <div id="st1" class="check-dot bg-qnt-600 text-white">1</div><div class="step-line" id="ln1"></div>
+        <div id="st2" class="check-dot bg-gray-200 text-gray-500">2</div><div class="step-line" id="ln2"></div>
+        <div id="st3" class="check-dot bg-gray-200 text-gray-500">3</div>
+      </div>
+      <!-- STEP 1 -->
+      <div id="coStep1">
+        <h4 class="font-display font-bold text-lg mb-3">Delivery Address 📍</h4>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <input id="fName" placeholder="Full Name *" class="sm:col-span-2 bg-black/5 rounded-xl px-4 py-3.5 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500">
+          <input id="fPhone" maxlength="10" inputmode="numeric" placeholder="Mobile Number (10-digit) *" class="bg-black/5 rounded-xl px-4 py-3.5 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500">
+          <input id="fPin" maxlength="6" inputmode="numeric" placeholder="Pincode *" class="bg-black/5 rounded-xl px-4 py-3.5 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500">
+          <input id="fAddr" placeholder="House No, Street, Area *" class="sm:col-span-2 bg-black/5 rounded-xl px-4 py-3.5 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500">
+          <input id="fCity" placeholder="City *" class="bg-black/5 rounded-xl px-4 py-3.5 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500">
+          <select id="fState" class="bg-black/5 rounded-xl px-4 py-3.5 text-[14px] font-medium outline-none focus:ring-2 focus:ring-qnt-500"><option value="">Select State *</option><option>Rajasthan</option><option>Maharashtra</option><option>Delhi</option><option>Uttar Pradesh</option><option>Gujarat</option><option>Karnataka</option><option>Tamil Nadu</option><option>West Bengal</option><option>Punjab</option><option>Madhya Pradesh</option><option>Other</option></select>
+        </div>
+        <div id="addrErr" class="hidden text-coral text-[13px] font-bold mt-2"></div>
+        <button onclick="goStep(2)" class="mt-5 w-full bg-ink text-white font-bold py-4 rounded-2xl hover:bg-qnt-600 transition">Continue to Payment →</button>
+      </div>
+      <!-- STEP 2 -->
+      <div id="coStep2" class="hidden">
+        <h4 class="font-display font-bold text-lg mb-3">Payment Method 💳</h4>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 border-2 border-qnt-500 bg-qnt-50 rounded-2xl p-4 cursor-pointer"><input type="radio" name="pay" value="UPI" checked class="mt-1 accent-[#6C2BFF] scale-125" onchange="payChange()"><div class="flex-1"><div class="font-bold flex items-center gap-2">UPI <span class="bg-mint text-black text-[10px] px-2 py-0.5 rounded-full">RECOMMENDED</span></div><div class="text-[12px] text-gray-500">GPay, PhonePe, Paytm & more</div><input id="upiId" placeholder="yourname@upi" class="mt-2 w-full bg-white border rounded-xl px-4 py-2.5 text-[13px] outline-none focus:border-qnt-500"></div></label>
+          <label class="flex items-start gap-3 border-2 border-black/10 rounded-2xl p-4 cursor-pointer hover:border-black/30"><input type="radio" name="pay" value="Card" class="mt-1 accent-[#6C2BFF] scale-125" onchange="payChange()"><div class="flex-1"><div class="font-bold">Credit / Debit Card</div><div class="text-[12px] text-gray-500">Visa, Mastercard, RuPay</div><div id="cardFields" class="hidden mt-2 grid grid-cols-2 gap-2"><input placeholder="Card Number" maxlength="19" class="col-span-2 bg-white border rounded-xl px-4 py-2.5 text-[13px] outline-none"><input placeholder="MM/YY" class="bg-white border rounded-xl px-4 py-2.5 text-[13px] outline-none"><input placeholder="CVV" maxlength="3" type="password" class="bg-white border rounded-xl px-4 py-2.5 text-[13px] outline-none"></div></div></label>
+          <label class="flex items-start gap-3 border-2 border-black/10 rounded-2xl p-4 cursor-pointer hover:border-black/30"><input type="radio" name="pay" value="COD" class="mt-1 accent-[#6C2BFF] scale-125" onchange="payChange()"><div><div class="font-bold">Cash on Delivery 💵</div><div class="text-[12px] text-gray-500">Pay in cash/UPI when order arrives • +₹0 fee</div></div></label>
+        </div>
+        <div class="bg-cream rounded-2xl p-4 mt-4 text-[13px] font-semibold space-y-1"><div class="flex justify-between"><span>Items (<span id="coCount">0</span>)</span><span id="coSub">₹0</span></div><div class="flex justify-between text-green-700"><span>Coupon Discount</span><span id="coDisc">-₹0</span></div><div class="flex justify-between"><span>Delivery</span><span id="coShip">₹49</span></div><div class="flex justify-between font-display font-bold text-lg pt-2 border-t border-dashed"><span>Payable</span><span id="coTotal" class="text-qnt-600">₹0</span></div></div>
+        <div class="flex gap-3 mt-5"><button onclick="goStep(1)" class="px-6 py-4 rounded-2xl border-2 border-black/10 font-bold hover:border-black">← Back</button><button id="placeOrderBtn" onclick="placeOrder()" class="flex-1 grad-bg text-white font-bold py-4 rounded-2xl hover:opacity-90 transition shadow-soft">Place Order • <span id="payBtnTotal">₹0</span></button></div>
+      </div>
+      <!-- STEP 3 SUCCESS -->
+      <div id="coStep3" class="hidden text-center py-6">
+        <div id="orderLoading"><div class="w-20 h-20 mx-auto rounded-full grad-bg flex items-center justify-center text-white text-3xl" style="animation:spin-slow 1.2s linear infinite"><i class="fa-solid fa-rotate"></i></div><div class="font-display font-bold text-xl mt-4">Processing your order...</div><div class="text-gray-500 text-[14px]">Please wait, confirming payment</div></div>
+        <div id="orderSuccess" class="hidden">
+          <div class="w-24 h-24 mx-auto rounded-full bg-green-500 text-white flex items-center justify-center text-4xl shadow-glow"><i class="fa-solid fa-check"></i></div>
+          <h4 class="font-display font-bold text-3xl mt-4">Order Placed! 🎉</h4>
+          <p class="text-gray-500 mt-2">Dhanyavaad! Aapka order confirm ho gaya hai.</p>
+          <div class="bg-black/5 rounded-2xl p-4 mt-4 max-w-sm mx-auto"><div class="text-[12px] font-bold text-gray-500">ORDER ID</div><div id="orderId" class="font-mono font-bold text-xl text-qnt-600"></div><div id="orderEta" class="text-[13px] font-semibold mt-1"></div></div>
+          <div class="text-[13px] text-gray-500 mt-3">Tracking link SMS & WhatsApp par bhej diya gaya hai.</div>
+          <button onclick="closeCheckout();openCart(false)" class="mt-5 bg-ink text-white px-8 py-4 rounded-2xl font-bold hover:bg-qnt-600 transition">Continue Shopping 🛍️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div id="authOverlay" class="fixed inset-0 z-[90] hidden items-center justify-center p-4"><div class="absolute inset-0 bg-ink/70 backdrop-blur-md" onclick="toggleAuth(false)"></div>
+  <div class="relative bg-white rounded-[28px] w-full max-w-md p-7 shadow-2xl">
+    <button onclick="toggleAuth(false)" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/5 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+    <div class="w-14 h-14 rounded-2xl grad-bg text-white flex items-center justify-center text-2xl font-display font-bold">Q</div>
+    <h3 class="font-display font-bold text-2xl mt-3">Welcome to Qntnta.store</h3>
+    <p class="text-gray-500 text-[14px]">Login for faster checkout, order tracking & exclusive offers.</p>
+    <div id="authStep1" class="mt-5"><label class="text-[13px] font-bold">Mobile Number</label><div class="flex gap-2 mt-2"><span class="bg-black/5 rounded-xl px-4 py-3.5 font-bold">+91</span><input id="authPhone" maxlength="10" inputmode="numeric" placeholder="98765 43210" class="flex-1 bg-black/5 rounded-xl px-4 py-3.5 font-bold outline-none focus:ring-2 focus:ring-qnt-500"></div><button onclick="sendOTP()" class="mt-3 w-full grad-bg text-white font-bold py-4 rounded-2xl">Send OTP →</button></div>
+    <div id="authStep2" class="hidden mt-5"><label class="text-[13px] font-bold">Enter OTP sent to <span id="otpPhone" class="text-qnt-600"></span></label><div class="flex gap-2 mt-2 justify-center"><input maxlength="1" class="otp w-12 h-14 text-center text-xl font-bold bg-black/5 rounded-xl outline-none focus:ring-2 focus:ring-qnt-500" oninput="moveOTP(this,0)"><input maxlength="1" class="otp w-12 h-14 text-center text-xl font-bold bg-black/5 rounded-xl outline-none focus:ring-2 focus:ring-qnt-500" oninput="moveOTP(this,1)"><input maxlength="1" class="otp w-12 h-14 text-center text-xl font-bold bg-black/5 rounded-xl outline-none focus:ring-2 focus:ring-qnt-500" oninput="moveOTP(this,2)"><input maxlength="1" class="otp w-12 h-14 text-center text-xl font-bold bg-black/5 rounded-xl outline-none focus:ring-2 focus:ring-qnt-500" oninput="moveOTP(this,3)"></div><div class="text-center text-[12px] text-gray-500 mt-2">Demo OTP: <b class="text-ink">1234</b> • Resend in <span id="otpTimer" class="font-bold">30</span>s</div><button onclick="verifyOTP()" class="mt-3 w-full bg-ink text-white font-bold py-4 rounded-2xl">Verify & Login</button></div>
+    <div class="text-[11px] text-gray-400 text-center mt-4">By continuing, you agree to our Terms & Privacy Policy</div>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div id="toastBox" class="fixed top-20 right-4 z-[100] space-y-2 w-[320px] max-w-[calc(100vw-2rem)]"></div>
+<div id="confettiBox" class="fixed inset-0 z-[95] pointer-events-none overflow-hidden"></div>
+
+<script>
+/* ============ DATA ============ */
+const IMG = (id,w=600)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+const PRODUCTS = [
+{id:1,name:"Aura Wireless Headphones Pro",category:"Electronics",price:2999,mrp:5999,rating:4.8,reviews:"2.3k",badge:"BESTSELLER",img:IMG("photo-1505740420928-5e560c06d30e"),desc:"40H battery, deep bass, Bluetooth 5.3, foldable design with soft cushions. Music lovers ka first choice — crystal clear sound with noise isolation.",colors:["Midnight Black","Arctic White","Navy Blue"],sizes:[]},
+{id:2,name:"Nebula Air Sneakers",category:"Footwear",price:3499,mrp:4999,rating:4.7,reviews:"12k",badge:"HOT",img:IMG("photo-1542291026-7eec264c27ff"),desc:"Lightweight running sneakers with air-cushion sole, breathable knit upper. Gym, running ya street style — sab mein perfect grip aur comfort.",colors:["Red Blast","Triple Black","White Volt"],sizes:["UK 6","UK 7","UK 8","UK 9","UK 10"]},
+{id:3,name:"Chrono Smart Watch Series 7",category:"Electronics",price:4999,mrp:8999,rating:4.6,reviews:"5.1k",badge:"NEW",img:IMG("photo-1523275335684-37898b6baf30"),desc:"1.85\" AMOLED display, BT calling, SpO2 + heart tracking, 7-day battery, 100+ sport modes. Premium look, desi price!",colors:["Black","Silver","Rose Gold"],sizes:[]},
+{id:4,name:"Retro Aviator Sunglasses",category:"Fashion",price:1299,mrp:2499,rating:4.5,reviews:"3.2k",badge:"-48%",img:IMG("photo-1572635196237-14b3f281503f"),desc:"Polarized UV400 lenses, lightweight metal frame. Dhoop ho ya style — dono mein full protection with celebrity look.",colors:["Gold-Green","Black","Silver-Blue"],sizes:[]},
+{id:5,name:"Urban Trek Backpack 35L",category:"Fashion",price:1899,mrp:2999,rating:4.7,reviews:"4.4k",badge:"TRENDING",img:IMG("photo-1553062407-98eeb64c6a62"),desc:"Water-resistant 35L backpack with laptop sleeve, USB charging port & anti-theft pocket. College, office ya travel — sab ready.",colors:["Charcoal","Olive","Tan"],sizes:[]},
+{id:6,name:"Oud Royale Luxury Perfume 100ml",category:"Beauty",price:1499,mrp:2299,rating:4.9,reviews:"8.7k",badge:"BESTSELLER",img:IMG("photo-1541643600914-78b084683601"),desc:"Long-lasting 8-10 hrs Arabian oud fragrance. Premium gift box packing. Ek spray — aur log poochenge kaunsa perfume hai!",colors:["Oud Royale","Musk White","Amber Noir"],sizes:[]},
+{id:7,name:"Essential Oversized Tee (Pack of 2)",category:"Fashion",price:799,mrp:1599,rating:4.4,reviews:"9.3k",badge:"-50%",img:IMG("photo-1521572163474-6864f9cf17ab"),desc:"220 GSM pure cotton oversized t-shirts, bio-washed, no shrinkage. Gen-Z fit, super soft — daily wear ka king.",colors:["Black+White","Beige+Olive","Lavender+Grey"],sizes:["S","M","L","XL","XXL"]},
+{id:8,name:"Denim Trucker Jacket",category:"Fashion",price:2199,mrp:3999,rating:4.6,reviews:"2.1k",badge:"LIMITED",img:IMG("photo-1551537482-f207b229c41f"),desc:"Premium stretch denim jacket with vintage wash. Winter layering ya bike rides — rugged look guaranteed.",colors:["Indigo","Light Wash","Black Denim"],sizes:["M","L","XL","XXL"]},
+{id:9,name:"Nova X5 5G Smartphone (8+128GB)",category:"Electronics",price:18999,mrp:24999,rating:4.5,reviews:"6.8k",badge:"NEW",img:IMG("photo-1511707171634-5f897ff02aa9"),desc:"6.7\" 120Hz AMOLED, 108MP OIS camera, 5000mAh + 67W fast charging, 5G ready. Flagship features, budget price.",colors:["Stardust Black","Ocean Blue"],sizes:["8+128GB","12+256GB"]},
+{id:10,name:"UltraBook Air Laptop 14\" (16/512)",category:"Electronics",price:54990,mrp:69990,rating:4.8,reviews:"1.2k",badge:"PREMIUM",img:IMG("photo-1496181133206-80ce9b88a853"),desc:"Intel i7 13th Gen, 16GB RAM, 512GB SSD, backlit keyboard, 1.3kg metal body. Students & professionals ke liye best.",colors:["Space Grey","Silver"],sizes:[]},
+{id:11,name:"EchoPods Pro ANC Earbuds",category:"Electronics",price:2499,mrp:4999,rating:4.9,reviews:"8.2k",badge:"FLASH -50%",img:IMG("photo-1590658268037-6bf12165a8df"),desc:"Active Noise Cancellation, 45H total battery, ENC quad-mic, 13mm bass drivers, ultra-low latency gaming mode.",colors:["White","Black","Mint"],sizes:[]},
+{id:12,name:"ThunderBoom Party Speaker",category:"Electronics",price:3299,mrp:5999,rating:4.6,reviews:"3.9k",badge:"HOT",img:IMG("photo-1608043152269-423dbba4e7e1"),desc:"40W stereo output, RGB lights, IPX6 waterproof, 18H playtime. Ghar ki party ab stadium jaisi!",colors:["Black","Blue"],sizes:[]},
+{id:13,name:"PixelPro Mirrorless Camera",category:"Electronics",price:42990,mrp:52990,rating:4.7,reviews:"890",badge:"PRO",img:IMG("photo-1526170375885-4d8ecf77b99f"),desc:"24.2MP APS-C sensor, 4K60 video, dual-pixel AF. Vlogging, reels & wedding shoots ke liye perfect creator combo.",colors:["Black"],sizes:[]},
+{id:14,name:"Ergo Comfort Lounge Chair",category:"Home & Living",price:8999,mrp:14999,rating:4.5,reviews:"1.5k",badge:"-40%",img:IMG("photo-1592078615290-033ee584e267"),desc:"Ergonomic high-back chair with premium fabric, solid wood legs. Reading corner ya living room ki shaan.",colors:["Beige","Grey","Mustard"],sizes:[]},
+{id:15,name:"Halo Minimal Desk Lamp",category:"Home & Living",price:1199,mrp:1999,rating:4.4,reviews:"2.7k",badge:"NEW",img:IMG("photo-1507473885765-e6ed057f782c"),desc:"Eye-care LED lamp with 3 color modes, touch control, USB-C charging. Study & WFH setup ka must-have.",colors:["White","Black","Wood"],sizes:[]},
+{id:16,name:"Vitamin C Glow Skincare Kit",category:"Beauty",price:999,mrp:1799,rating:4.7,reviews:"11k",badge:"VIRAL",img:IMG("photo-1620916566398-39f1143ab7be"),desc:"Face wash + serum + moisturizer + sunscreen. 7 days mein visible glow. All skin types, dermat tested, paraben free.",colors:[],sizes:[]},
+{id:17,name:"Velvet Matte Makeup Set (12pc)",category:"Beauty",price:1399,mrp:2599,rating:4.6,reviews:"6.1k",badge:"TRENDING",img:IMG("photo-1596462502278-27bfdc403348"),desc:"12 long-stay matte lipsticks + kohl + blush palette. Highly pigmented, waterproof, festive-ready glam box.",colors:["Nude Pack","Bold Pack","Pink Pack"],sizes:[]},
+{id:18,name:"StreetRunner Knit Shoes",category:"Footwear",price:2799,mrp:4299,rating:4.5,reviews:"4.8k",badge:"SPORT",img:IMG("photo-1549298916-b41d501d3772"),desc:"Featherlight knit running shoes with memory foam insole. Morning walk se marathon tak — pain-free running.",colors:["White-Red","Black-Grey","Blue-White"],sizes:["UK 6","UK 7","UK 8","UK 9","UK 10","UK 11"]},
+{id:19,name:"CloudSoft Oversized Hoodie",category:"Fashion",price:1499,mrp:2499,rating:4.8,reviews:"7.4k",badge:"WINTER",img:IMG("photo-1556821840-3a63f95609a7"),desc:"400 GSM fleece hoodie, kangaroo pocket, premium drawstrings. Winter ka sabse cozy aur stylish pick.",colors:["Cream","Black","Sage","Rust"],sizes:["M","L","XL","XXL"]},
+{id:20,name:"Vintage Leather Wallet",category:"Fashion",price:699,mrp:1299,rating:4.6,reviews:"5.5k",badge:"-46%",img:IMG("photo-1627123424574-724758594e93"),desc:"Genuine leather bifold wallet with RFID protection, 8 card slots + coin pocket. Gift-ready premium box.",colors:["Tan","Dark Brown","Black"],sizes:[]},
+{id:21,name:"Mech RGB Gaming Keyboard",category:"Electronics",price:2999,mrp:4499,rating:4.7,reviews:"2.9k",badge:"GAMING",img:IMG("photo-1587829741301-dc798b83add3"),desc:"Hot-swappable blue switches, per-key RGB, metal body, Type-C. Typing feel next-level — gamers ka favourite.",colors:["Black","White"],sizes:[]},
+{id:22,name:"SkyHawk 4K Camera Drone",category:"Electronics",price:12999,mrp:18999,rating:4.4,reviews:"760",badge:"PRO",img:IMG("photo-1473968512647-3e447244af8f"),desc:"4K dual camera, 30-min flight, gesture control, 3km range, carry case. Shaadi & travel shots ab cinematic!",colors:["Grey"],sizes:[]},
+{id:23,name:"Handloom Banarasi Silk Saree",category:"Fashion",price:2999,mrp:5999,rating:4.9,reviews:"3.3k",badge:"FESTIVE",img:IMG("photo-1610030469983-98e550d6193c"),desc:"Pure Banarasi silk with gold zari work + blouse piece. Festivals, weddings & puja — timeless elegance, Silk Mark certified.",colors:["Maroon-Gold","Royal Blue","Emerald","Rani Pink"],sizes:["Free Size"]},
+{id:24,name:"Ceramic Aroma Diffuser & Candle Set",category:"Home & Living",price:1799,mrp:2999,rating:4.6,reviews:"1.9k",badge:"GIFT",img:IMG("photo-1603006905003-be475563bc59"),desc:"Handcrafted ceramic diffuser + 2 scented candles (sandalwood & lavender). Ghar mein spa wali khushboo aur positive vibes.",colors:["White","Terracotta"],sizes:[]}
+];
+const CATS = [
+ {name:"Electronics",img:IMG("photo-1498049794561-7780e7231661"),icon:"fa-microchip"},
+ {name:"Fashion",img:IMG("photo-1445205170230-053b83016050"),icon:"fa-shirt"},
+ {name:"Footwear",img:IMG("photo-1549298916-b41d501d3772"),icon:"fa-shoe-prints"},
+ {name:"Home & Living",img:IMG("photo-1586023492125-27b2c045efd7"),icon:"fa-couch"},
+ {name:"Beauty",img:IMG("photo-1596462502278-27bfdc403348"),icon:"fa-wand-magic-sparkles"},
+ {name:"All Products",img:IMG("photo-1441986300917-64674bd600d8"),icon:"fa-bag-shopping"}
+];
+const REVIEWS = [
+ {name:"Priya Sharma",city:"Jaipur",img:"https://i.pravatar.cc/100?img=47",stars:5,text:"Qntnta se maine Banarasi saree mangwai thi — quality ekdum premium! Packing, delivery sab top class. COD bhi available hai. Highly recommended!",product:"Banarasi Silk Saree"},
+ {name:"Rahul Verma",city:"Delhi",img:"https://i.pravatar.cc/100?img=12",stars:5,text:"EchoPods Pro itne kam price mein ANC ke saath? Sound quality is insane for ₹2,499. Delivery 3 din mein ho gayi. Best tech deals on Qntnta!",product:"EchoPods Pro"},
+ {name:"Sneha Patel",city:"Mumbai",img:"https://i.pravatar.cc/100?img=32",stars:5,text:"Skincare kit se 10 din mein glow visible hai. 100% original products, expiry date bhi 2027 tak. Customer support Hindi mein baat karta hai. Love it!",product:"Vitamin C Kit"},
+ {name:"Amit Kumar",city:"Lucknow",img:"https://i.pravatar.cc/100?img=53",stars:4,text:"Sneakers ka size thoda tight aaya tha, but return/exchange 2 din mein ho gaya bina koi sawaal. Aisi service Flipkart-Amazon par bhi nahi mili.",product:"Nebula Air Sneakers"},
+ {name:"Kavya Reddy",city:"Hyderabad",img:"https://i.pravatar.cc/100?img=44",stars:5,text:"Smart watch gift kiya papa ko — BT calling super clear hai. QNTNTA10 coupon se extra discount bhi mila. Ab toh poora ghar yahin se shop karta hai!",product:"Chrono Smart Watch"},
+ {name:"Arjun Singh",city:"Pune",img:"https://i.pravatar.cc/100?img=59",stars:5,text:"Gaming keyboard ka RGB aur typing feel next level hai. Genuine bill + warranty card mila. Qntnta.store ab mera default tech store hai. 10/10!",product:"Mech RGB Keyboard"}
+];
+
+/* ============ STATE ============ */
+let cart = [], wishlist = new Set(), activeCat="All", searchQ="", sortBy="featured", maxPrice=60000, visibleCount=12, isList=false, appliedPromo=null, qvId=null, qvQtyN=1, qvSize=null, qvColor=null, user=null;
+try{ cart=JSON.parse(localStorage.getItem("qnt_cart")||"[]"); wishlist=new Set(JSON.parse(localStorage.getItem("qnt_wish")||"[]")); }catch(e){}
+function save(){ try{ localStorage.setItem("qnt_cart",JSON.stringify(cart)); localStorage.setItem("qnt_wish",JSON.stringify([...wishlist])); }catch(e){} }
+const fmt = n => "₹"+Math.round(n).toLocaleString("en-IN");
+const off = p => Math.round((1-p.price/p.mrp)*100);
+const stars = r => "★".repeat(Math.round(r))+"☆".repeat(5-Math.round(r));
+
+/* ============ TOAST ============ */
+function toast(msg,type="success"){
+  const box=document.getElementById("toastBox");
+  const colors={success:"bg-ink text-white border-l-4 border-mint",error:"bg-ink text-white border-l-4 border-coral",info:"bg-white text-ink border border-black/10 shadow-card"};
+  const icons={success:"fa-circle-check text-mint",error:"fa-circle-xmark text-coral",info:"fa-circle-info text-qnt-500"};
+  const el=document.createElement("div");
+  el.className=`${colors[type]} rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-2xl toast-in text-[13px] font-semibold`;
+  el.innerHTML=`<i class="fa-solid ${icons[type]} text-lg"></i><span>${msg}</span>`;
+  box.appendChild(el);
+  setTimeout(()=>{ el.classList.add("toast-out"); setTimeout(()=>el.remove(),400); },2800);
+}
+function copyCoupon(code){ navigator.clipboard?.writeText(code).catch(()=>{}); toast(`Coupon <b class="text-limex mx-1">${code}</b> copied! Apply in cart.`,"success"); }
+
+/* ============ CATEGORIES ============ */
+function renderCats(){
+  const g=document.getElementById("catGrid");
+  g.innerHTML = CATS.map(c=>{
+    const count = c.name==="All Products"?PRODUCTS.length:PRODUCTS.filter(p=>p.category===c.name).length;
+    return `<button onclick="filterByCategory('${c.name==="All Products"?"All":c.name}')" class="reveal visible cat-card group relative rounded-[20px] overflow-hidden h-[150px] sm:h-[190px] text-left shadow-card">
+      <img src="${c.img}" alt="${c.name}" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+      <div class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur flex items-center justify-center text-qnt-700"><i class="fa-solid ${c.icon}"></i></div>
+      <div class="absolute bottom-3 left-3 right-3 text-white"><div class="font-display font-bold text-[14px] sm:text-[16px] leading-tight">${c.name}</div><div class="text-[11px] text-white/70 font-semibold">${count} products →</div></div>
+    </button>`;
+  }).join("");
+}
+function filterByCategory(cat){
+  activeCat=cat; visibleCount=12; renderPills(); renderProducts();
+  document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+
+/* ============ PRODUCT LISTING ============ */
+function renderPills(){
+  const cats=["All","Electronics","Fashion","Footwear","Home & Living","Beauty"];
+  document.getElementById("pills").innerHTML = cats.map(c=>`<button onclick="setCat('${c}')" class="whitespace-nowrap px-4 py-2.5 rounded-full border-2 border-black/10 text-[13px] font-bold transition hover:border-ink ${activeCat===c?'pill-active':''}">${c==="All"?"All ✨":c}</button>`).join("");
+}
+function setCat(c){ activeCat=c; visibleCount=12; renderPills(); renderProducts(); }
+function resetFilters(){ activeCat="All"; searchQ=""; sortBy="featured"; maxPrice=60000; document.getElementById("shopSearch").value=""; document.getElementById("sortSelect").value="featured"; document.getElementById("priceRange").value=60000; document.getElementById("priceLabel").textContent="₹60,000"; visibleCount=12; renderPills(); renderProducts(); }
+
+function getFiltered(){
+  let list=[...PRODUCTS];
+  if(activeCat!=="All") list=list.filter(p=>p.category===activeCat);
+  if(searchQ) list=list.filter(p=>(p.name+" "+p.category+" "+p.desc).toLowerCase().includes(searchQ.toLowerCase()));
+  list=list.filter(p=>p.price<=maxPrice);
+  if(sortBy==="low") list.sort((a,b)=>a.price-b.price);
+  else if(sortBy==="high") list.sort((a,b)=>b.price-a.price);
+  else if(sortBy==="rating") list.sort((a,b)=>b.rating-a.rating);
+  else if(sortBy==="discount") list.sort((a,b)=>off(b)-off(a));
+  return list;
+}
+
+function badgeColor(b){
+  if(!b) return "hidden";
+  if(b.includes("FLASH")||b.includes("HOT")) return "bg-coral text-white";
+  if(b.includes("NEW")) return "bg-mint text-black";
+  if(b.includes("BEST")) return "bg-ink text-limex";
+  if(b.includes("%")) return "bg-white text-coral border border-coral/30";
+  return "bg-qnt-600 text-white";
+}
+
+function renderProducts(){
+  const grid=document.getElementById("productGrid");
+  const list=getFiltered();
+  document.getElementById("resultsCount").textContent=`(${list.length} items)`;
+  document.getElementById("emptyState").classList.toggle("hidden",list.length>0);
+  const show=list.slice(0,visibleCount);
+  document.getElementById("loadMoreBtn").classList.toggle("hidden",list.length<=visibleCount);
+
+  if(isList){
+    grid.className="p-grid grid grid-cols-1 gap-4";
+    grid.innerHTML=show.map(p=>`
+    <div class="product-card bg-white rounded-[20px] border border-black/5 shadow-card overflow-hidden flex flex-col sm:flex-row">
+      <div class="relative sm:w-[260px] shrink-0 h-52 sm:h-auto overflow-hidden cursor-pointer" onclick="openQuickView(${p.id})">
+        <img src="${p.img}" loading="lazy" class="p-img w-full h-full object-cover sm:h-full" alt="${p.name}">
+        <span class="absolute top-3 left-3 text-[11px] font-bold px-2.5 py-1 rounded-full ${badgeColor(p.badge)}">${p.badge}</span>
+      </div>
+      <div class="p-4 sm:p-5 flex-1 flex flex-col">
+        <div class="text-[11px] font-bold text-qnt-600 tracking-widest">${p.category.toUpperCase()}</div>
+        <div class="font-display font-bold text-lg leading-snug cursor-pointer hover:text-qnt-600" onclick="openQuickView(${p.id})">${p.name}</div>
+        <div class="flex items-center gap-2 mt-1"><span class="stars text-[13px]">${stars(p.rating)}</span><span class="text-[12px] text-gray-500 font-semibold">${p.rating} (${p.reviews})</span></div>
+        <p class="text-[13px] text-gray-500 mt-2 line-clamp-2">${p.desc}</p>
+        <div class="mt-auto pt-3 flex items-center justify-between flex-wrap gap-2">
+          <div><span class="font-display font-bold text-2xl">${fmt(p.price)}</span> <span class="line-through text-gray-400 text-sm">${fmt(p.mrp)}</span> <span class="text-green-600 font-bold text-[13px]">${off(p)}% off</span></div>
+          <div class="flex gap-2"><button onclick="toggleWishlist(${p.id})" class="w-11 h-11 rounded-xl border-2 border-black/10 flex items-center justify-center ${wishlist.has(p.id)?'text-coral border-coral':'hover:border-coral hover:text-coral'} transition"><i class="fa-${wishlist.has(p.id)?'solid':'regular'} fa-heart"></i></button>
+          <button onclick="openQuickView(${p.id})" class="px-4 h-11 rounded-xl bg-black/5 font-bold text-[13px] hover:bg-black/10">Quick View</button>
+          <button onclick="addToCart(${p.id},1)" class="px-5 h-11 rounded-xl bg-ink text-white font-bold text-[13px] hover:bg-qnt-600 transition"><i class="fa-solid fa-bag-shopping mr-1"></i> Add to Cart</button></div>
+        </div>
+      </div>
+    </div>`).join("");
+  } else {
+    grid.className="p-grid grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5";
+    grid.innerHTML=show.map(p=>`
+    <div class="product-card bg-white rounded-[18px] sm:rounded-[22px] border border-black/5 shadow-card overflow-hidden flex flex-col">
+      <div class="relative overflow-hidden cursor-pointer aspect-square" onclick="openQuickView(${p.id})">
+        <img src="${p.img}" loading="lazy" class="p-img w-full h-full object-cover" alt="${p.name}">
+        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full ${badgeColor(p.badge)}">${p.badge}</span>
+        <button onclick="event.stopPropagation();toggleWishlist(${p.id})" class="absolute top-2.5 right-2.5 w-9 h-9 rounded-full ${wishlist.has(p.id)?'bg-coral text-white':'bg-white/90 text-black'} backdrop-blur flex items-center justify-center shadow hover:scale-110 transition"><i class="fa-${wishlist.has(p.id)?'solid':'regular'} fa-heart text-sm"></i></button>
+        <div class="hover-actions absolute bottom-2.5 left-2.5 right-2.5 flex gap-2">
+          <button onclick="event.stopPropagation();openQuickView(${p.id})" class="flex-1 bg-white/95 backdrop-blur text-[12px] font-bold py-2.5 rounded-xl hover:bg-white"><i class="fa-regular fa-eye mr-1"></i> Quick View</button>
+          <button onclick="event.stopPropagation();addToCart(${p.id},1)" class="flex-1 bg-ink text-white text-[12px] font-bold py-2.5 rounded-xl hover:bg-qnt-600"><i class="fa-solid fa-plus mr-1"></i> Add</button>
+        </div>
+      </div>
+      <div class="p-3 sm:p-4 flex flex-col flex-1">
+        <div class="text-[10px] font-bold text-qnt-600 tracking-widest">${p.category.toUpperCase()}</div>
+        <div class="font-bold text-[13px] sm:text-[15px] leading-snug mt-0.5 cursor-pointer hover:text-qnt-600 line-clamp-2" onclick="openQuickView(${p.id})">${p.name}</div>
+        <div class="flex items-center gap-1.5 mt-1.5"><span class="bg-green-600 text-white text-[11px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-1">${p.rating} <i class="fa-solid fa-star text-[9px]"></i></span><span class="text-[11px] text-gray-400 font-semibold">(${p.reviews})</span></div>
+        <div class="mt-2 flex items-baseline gap-1.5 flex-wrap"><span class="font-display font-bold text-[17px] sm:text-xl">${fmt(p.price)}</span><span class="line-through text-gray-400 text-[12px]">${fmt(p.mrp)}</span><span class="text-green-600 font-bold text-[11px] sm:text-[12px]">${off(p)}% off</span></div>
+        <button onclick="addToCart(${p.id},1)" class="sm:hidden mt-2.5 w-full bg-ink text-white text-[12px] font-bold py-2.5 rounded-xl">Add to Cart</button>
+        <button onclick="addToCart(${p.id},1)" class="hidden sm:flex mt-3 w-full border-2 border-ink font-bold text-[13px] py-2.5 rounded-xl hover:bg-ink hover:text-white transition items-center justify-center gap-2"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+      </div>
+    </div>`).join("");
+  }
+}
+
+function skeleton(){
+  const grid=document.getElementById("productGrid");
+  grid.innerHTML=Array(8).fill(0).map(()=>`<div class="bg-white rounded-[22px] overflow-hidden border border-black/5"><div class="skeleton aspect-square"></div><div class="p-4 space-y-2"><div class="skeleton h-4 rounded w-1/3"></div><div class="skeleton h-5 rounded w-4/5"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>`).join("");
+}
+
+/* ============ CART ============ */
+function cartQty(){ return cart.reduce((s,i)=>s+i.qty,0); }
+function cartSubtotal(){ return cart.reduce((s,i)=>{ const p=PRODUCTS.find(x=>x.id===i.id); return s+(p?p.price*i.qty:0); },0); }
+function promoDiscount(sub){
+  if(!appliedPromo) return 0;
+  if(appliedPromo==="QNTNTA10") return Math.min(Math.round(sub*0.10),500);
+  if(appliedPromo==="DIWALI20") return sub>=999?Math.min(Math.round(sub*0.20),1000):0;
+  if(appliedPromo==="FREESHIP") return 0;
+  return 0;
+}
+function shipCost(sub){ if(appliedPromo==="FREESHIP") return 0; return sub===0?0:(sub>=499?0:49); }
+
+function addToCart(id,qty=1,size=null,color=null){
+  const p=PRODUCTS.find(x=>x.id===id); if(!p) return;
+  size=size||qvSize||(p.sizes?.[0]||"Standard"); color=color||qvColor||(p.colors?.[0]||"Default");
+  const key=cart.find(i=>i.id===id&&i.size===size&&i.color===color);
+  if(key) key.qty+=qty; else cart.push({id,qty,size,color});
+  save(); updateCartUI();
+  toast(`<b>${p.name}</b> added to cart! 🛒`);
+  const btn=document.getElementById("cartBtn"); btn.classList.add("scale-110"); setTimeout(()=>btn.classList.remove("scale-110"),250);
+}
+function changeQty(idx,d){
+  cart[idx].qty+=d;
+  if(cart[idx].qty<=0){ cart.splice(idx,1); toast("Item removed from cart","info"); }
+  save(); updateCartUI();
+}
+function removeItem(idx){ cart.splice(idx,1); save(); updateCartUI(); toast("Item removed","info"); }
+
+function updateCartUI(){
+  const n=cartQty(), sub=cartSubtotal(), disc=promoDiscount(sub), ship=shipCost(sub), total=sub-disc+ship;
+  const cc=document.getElementById("cartCount"); cc.textContent=n;
+  document.getElementById("cartDrawerCount").textContent=n;
+  document.getElementById("wishlistCount").textContent=wishlist.size;
+  document.getElementById("wishlistCount").classList.toggle("hidden",wishlist.size===0);
+  const bar=document.getElementById("freeShipBar"), msg=document.getElementById("freeShipMsg");
+  const pct=Math.min(100,Math.round(sub/499*100)); bar.style.width=pct+"%";
+  msg.innerHTML = sub>=499?`🎉 <b class="text-green-600">FREE shipping unlocked!</b>`:`Add <b>${fmt(499-sub)}</b> more for FREE shipping`;
+  const box=document.getElementById("cartItems");
+  if(cart.length===0){
+    box.innerHTML=`<div class="text-center py-14"><div class="w-24 h-24 mx-auto rounded-full bg-cream flex items-center justify-center text-4xl">🛒</div><div class="font-display font-bold text-xl mt-4">Your cart is empty</div><p class="text-gray-500 text-[13px] mt-1">Kuch trendy add karo — sale chal rahi hai!</p><button onclick="openCart(false);document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="mt-4 bg-ink text-white px-6 py-3 rounded-xl font-bold text-[13px]">Start Shopping →</button></div>`;
+  } else {
+    box.innerHTML=cart.map((i,idx)=>{ const p=PRODUCTS.find(x=>x.id===i.id); if(!p) return ""; return `
+    <div class="flex gap-3 bg-black/[0.02] border border-black/5 rounded-2xl p-3">
+      <img src="${p.img}" class="w-[72px] h-[80px] rounded-xl object-cover shrink-0" alt="">
+      <div class="flex-1 min-w-0"><div class="font-bold text-[13px] leading-snug line-clamp-2">${p.name}</div>
+        <div class="text-[11px] text-gray-500 font-semibold mt-0.5">${i.color} ${i.size!=="Standard"?"• "+i.size:""}</div>
+        <div class="flex items-center justify-between mt-2">
+          <div class="flex items-center bg-white border rounded-full overflow-hidden"><button onclick="changeQty(${idx},-1)" class="w-8 h-8 font-bold hover:bg-black/5">−</button><span class="w-7 text-center font-bold text-[13px]">${i.qty}</span><button onclick="changeQty(${idx},1)" class="w-8 h-8 font-bold hover:bg-black/5">+</button></div>
+          <div class="font-display font-bold">${fmt(p.price*i.qty)}</div>
+        </div></div>
+      <button onclick="removeItem(${idx})" class="self-start text-gray-300 hover:text-coral transition"><i class="fa-solid fa-trash-can text-sm"></i></button>
+    </div>`; }).join("");
+  }
+  document.getElementById("cartSubtotal").textContent=fmt(sub);
+  document.getElementById("cartDiscount").textContent="-"+fmt(disc);
+  document.getElementById("cartShipping").textContent=ship===0?(sub>0?"FREE":fmt(0)):fmt(ship);
+  document.getElementById("cartTotal").textContent=fmt(total);
+  renderProducts(); renderWishlist();
+}
+
+function applyPromo(){
+  const v=document.getElementById("promoInput").value.trim().toUpperCase();
+  const msg=document.getElementById("promoMsg"); msg.classList.remove("hidden");
+  const valid={QNTNTA10:"10% OFF applied! 🎉",DIWALI20:"20% OFF applied! 🪔",FREESHIP:"FREE shipping applied! 🚚"};
+  if(valid[v]){
+    if(v==="DIWALI20"&&cartSubtotal()<999){ msg.className="text-[12px] font-bold text-coral"; msg.textContent="DIWALI20 needs minimum ₹999 order."; return; }
+    appliedPromo=v; msg.className="text-[12px] font-bold text-green-600"; msg.textContent="✓ "+valid[v];
+    toast(`Coupon <b>${v}</b> applied!`); updateCartUI();
+  } else { msg.className="text-[12px] font-bold text-coral"; msg.textContent="✗ Invalid coupon code."; }
+}
+
+function openCart(open=true){
+  const o=document.getElementById("cartOverlay"), d=document.getElementById("cartDrawer");
+  if(open){ o.classList.remove("hidden"); document.body.style.overflow="hidden"; requestAnimationFrame(()=>d.classList.remove("translate-x-full")); }
+  else { d.classList.add("translate-x-full"); setTimeout(()=>o.classList.add("hidden"),450); document.body.style.overflow=""; }
+}
+
+/* ============ WISHLIST ============ */
+function toggleWishlist(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(wishlist.has(id)){ wishlist.delete(id); toast(`Removed from wishlist`,"info"); }
+  else { wishlist.add(id); toast(`<b>${p.name}</b> saved to wishlist ❤️`); }
+  save(); updateCartUI();
+  if(qvId===id) syncQvWish();
+}
+function renderWishlist(){
+  const box=document.getElementById("wishlistItems");
+  const items=[...wishlist].map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean);
+  if(items.length===0){ box.innerHTML=`<div class="text-center py-14"><div class="text-5xl">💔</div><div class="font-display font-bold text-lg mt-3">Wishlist is empty</div><p class="text-gray-500 text-[13px]">Tap the heart on products to save them here.</p></div>`; return; }
+  box.innerHTML=items.map(p=>`<div class="flex gap-3 bg-black/[0.02] border rounded-2xl p-3"><img src="${p.img}" class="w-[70px] h-[76px] rounded-xl object-cover"><div class="flex-1 min-w-0"><div class="font-bold text-[13px] line-clamp-2">${p.name}</div><div class="font-display font-bold mt-1">${fmt(p.price)} <span class="line-through text-gray-400 text-[12px] font-body">${fmt(p.mrp)}</span></div><div class="flex gap-2 mt-2"><button onclick="addToCart(${p.id},1)" class="flex-1 bg-ink text-white text-[12px] font-bold py-2 rounded-lg">Move to Cart</button><button onclick="toggleWishlist(${p.id})" class="w-9 h-9 rounded-lg border flex items-center justify-center text-coral"><i class="fa-solid fa-trash-can text-xs"></i></button></div></div></div>`).join("");
+}
+function openWishlist(open=true){
+  const o=document.getElementById("wishOverlay"), d=document.getElementById("wishDrawer");
+  if(open){ renderWishlist(); o.classList.remove("hidden"); document.body.style.overflow="hidden"; requestAnimationFrame(()=>d.classList.remove("translate-x-full")); }
+  else { d.classList.add("translate-x-full"); setTimeout(()=>o.classList.add("hidden"),450); document.body.style.overflow=""; }
+}
+
+/* ============ QUICK VIEW ============ */
+function openQuickView(id){
+  const p=PRODUCTS.find(x=>x.id===id); if(!p) return;
+  qvId=id; qvQtyN=1; qvSize=p.sizes?.[0]||null; qvColor=p.colors?.[0]||null;
+  document.getElementById("qvImg").src=p.img;
+  document.getElementById("qvThumb1").src=p.img;
+  document.getElementById("qvThumb2").src=p.img.replace("w=600","w=400");
+  document.getElementById("qvThumb3").src=p.img;
+  document.getElementById("qvBadge").textContent=p.badge||""; document.getElementById("qvBadge").style.display=p.badge?"block":"none";
+  document.getElementById("qvCat").textContent="● "+p.category.toUpperCase();
+  document.getElementById("qvName").textContent=p.name;
+  document.getElementById("qvStars").textContent=stars(p.rating);
+  document.getElementById("qvReviews").textContent=`${p.rating} • ${p.reviews} reviews`;
+  document.getElementById("qvPrice").textContent=fmt(p.price);
+  document.getElementById("qvMrp").textContent=fmt(p.mrp);
+  document.getElementById("qvOff").textContent=off(p)+"% OFF";
+  document.getElementById("qvEmi").textContent=fmt(Math.round(p.price/12));
+  document.getElementById("qvDesc").textContent=p.desc;
+  document.getElementById("qvQty").textContent="1";
+  document.getElementById("qvColorName").textContent=qvColor||"—";
+  document.getElementById("qvColors").innerHTML=(p.colors||[]).map((c,i)=>`<button onclick="pickColor('${c}')" class="qvC px-4 py-2 rounded-full border-2 text-[12px] font-bold transition ${i===0?'border-qnt-600 bg-qnt-50 text-qnt-700':'border-black/10'}">${c}</button>`).join("")||'<span class="text-[13px] text-gray-400">Standard</span>';
+  document.getElementById("qvSizeWrap").style.display=(p.sizes&&p.sizes.length)?"block":"none";
+  document.getElementById("qvSizes").innerHTML=(p.sizes||[]).map((s,i)=>`<button onclick="pickSize('${s}')" class="qvS px-4 py-2 rounded-xl border-2 text-[12px] font-bold transition ${i===0?'border-ink bg-ink text-white':'border-black/10'}">${s}</button>`).join("");
+  document.getElementById("qvAddBtn").onclick=()=>{ addToCart(qvId,qvQtyN,qvSize,qvColor); closeQuickView(); openCart(true); };
+  document.getElementById("qvBuyBtn").onclick=()=>{ addToCart(qvId,qvQtyN,qvSize,qvColor); closeQuickView(); startCheckout(); };
+  document.getElementById("qvWishBtn").onclick=()=>toggleWishlist(qvId);
+  syncQvWish();
+  const o=document.getElementById("qvOverlay"), b=document.getElementById("qvBox");
+  o.classList.remove("hidden"); o.classList.add("flex"); document.body.style.overflow="hidden";
+  requestAnimationFrame(()=>{ b.classList.remove("scale-95","opacity-0"); });
+}
+function syncQvWish(){ const on=wishlist.has(qvId); document.getElementById("qvWishBtn").innerHTML=`<i class="fa-${on?'solid':'regular'} fa-heart ${on?'text-coral':''}"></i>`; }
+function pickColor(c){ qvColor=c; document.getElementById("qvColorName").textContent=c; document.querySelectorAll(".qvC").forEach(b=>{ const on=b.textContent===c; b.className=`qvC px-4 py-2 rounded-full border-2 text-[12px] font-bold transition ${on?'border-qnt-600 bg-qnt-50 text-qnt-700':'border-black/10'}`; }); }
+function pickSize(s){ qvSize=s; document.querySelectorAll(".qvS").forEach(b=>{ const on=b.textContent===s; b.className=`qvS px-4 py-2 rounded-xl border-2 text-[12px] font-bold transition ${on?'border-ink bg-ink text-white':'border-black/10'}`; }); }
+function qvQtyChange(d){ qvQtyN=Math.max(1,Math.min(10,qvQtyN+d)); document.getElementById("qvQty").textContent=qvQtyN; }
+function closeQuickView(){ const o=document.getElementById("qvOverlay"), b=document.getElementById("qvBox"); b.classList.add("scale-95","opacity-0"); setTimeout(()=>{ o.classList.add("hidden"); o.classList.remove("flex"); document.body.style.overflow=""; },250); }
+
+/* ============ CHECKOUT ============ */
+function startCheckout(){
+  if(cart.length===0){ toast("Cart is empty! Add some products first.","error"); return; }
+  openCart(false);
+  const o=document.getElementById("coOverlay"); o.classList.remove("hidden"); o.classList.add("flex"); document.body.style.overflow="hidden";
+  goStep(1);
+}
+function closeCheckout(){ const o=document.getElementById("coOverlay"); o.classList.add("hidden"); o.classList.remove("flex"); document.body.style.overflow=""; }
+function goStep(n){
+  if(n===2){
+    const name=document.getElementById("fName").value.trim(), ph=document.getElementById("fPhone").value.trim(), pin=document.getElementById("fPin").value.trim(), ad=document.getElementById("fAddr").value.trim(), city=document.getElementById("fCity").value.trim(), st=document.getElementById("fState").value;
+    const err=document.getElementById("addrErr"); err.classList.add("hidden");
+    let e="";
+    if(name.length<3) e="Please enter your full name.";
+    else if(!/^[6-9]\d{9}$/.test(ph)) e="Please enter a valid 10-digit mobile number.";
+    else if(!/^\d{6}$/.test(pin)) e="Please enter a valid 6-digit pincode.";
+    else if(ad.length<8) e="Please enter complete address.";
+    else if(!city) e="Please enter city.";
+    else if(!st) e="Please select state.";
+    if(e){ err.textContent="⚠️ "+e; err.classList.remove("hidden"); return; }
+  }
+  ["coStep1","coStep2","coStep3"].forEach((id,i)=>document.getElementById(id).classList.toggle("hidden",(i+1)!==n));
+  const dots=["st1","st2","st3"];
+  dots.forEach((id,i)=>{ const el=document.getElementById(id); if(i+1<=n){ el.className="check-dot bg-qnt-600 text-white"; el.innerHTML=i+1<n?'<i class="fa-solid fa-check"></i>':(i+1); } else { el.className="check-dot bg-gray-200 text-gray-500"; el.textContent=i+1; } });
+  document.getElementById("ln1").style.background=n>=2?"#6C2BFF":"#e5e7eb";
+  document.getElementById("ln2").style.background=n>=3?"#6C2BFF":"#e5e7eb";
+  if(n===2){ const sub=cartSubtotal(),d=promoDiscount(sub),s=shipCost(sub); document.getElementById("coCount").textContent=cartQty(); document.getElementById("coSub").textContent=fmt(sub); document.getElementById("coDisc").textContent="-"+fmt(d); document.getElementById("coShip").textContent=s===0?"FREE":fmt(s); document.getElementById("coTotal").textContent=fmt(sub-d+s); document.getElementById("payBtnTotal").textContent=fmt(sub-d+s); }
+}
+function payChange(){
+  const v=document.querySelector('input[name=pay]:checked').value;
+  document.getElementById("cardFields").classList.toggle("hidden",v!=="Card");
+  document.getElementById("upiId").style.display=v==="UPI"?"block":"none";
+  document.querySelectorAll('input[name=pay]').forEach(r=>{ r.closest("label").className=`flex items-start gap-3 border-2 rounded-2xl p-4 cursor-pointer ${r.checked?'border-qnt-500 bg-qnt-50':'border-black/10 hover:border-black/30'}`; });
+}
+function placeOrder(){
+  const v=document.querySelector('input[name=pay]:checked').value;
+  if(v==="UPI"){ const u=document.getElementById("upiId").value.trim(); if(u && !/^[\w.\-]{2,}@[a-zA-Z]{2,}$/.test(u)){ toast("Please enter valid UPI ID or choose COD","error"); return; } }
+  goStep(3);
+  document.getElementById("orderLoading").classList.remove("hidden");
+  document.getElementById("orderSuccess").classList.add("hidden");
+  document.getElementById("placeOrderBtn")?.setAttribute("disabled","true");
+  setTimeout(()=>{
+    document.getElementById("orderLoading").classList.add("hidden");
+    document.getElementById("orderSuccess").classList.remove("hidden");
+    const oid="QNT"+Date.now().toString().slice(-8);
+    document.getElementById("orderId").textContent="#"+oid;
+    const eta=new Date(Date.now()+4*864e5).toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
+    document.getElementById("orderEta").textContent=`Expected delivery by ${eta} • Pay via ${v}`;
+    cart=[]; appliedPromo=null; document.getElementById("promoInput").value=""; document.getElementById("promoMsg").classList.add("hidden");
+    save(); updateCartUI(); fireConfetti();
+    toast("Order placed successfully! 🎉");
+  },2200);
+}
+function fireConfetti(){
+  const box=document.getElementById("confettiBox"); box.innerHTML="";
+  const colors=["#6C2BFF","#00E6A0","#FF3D2E","#FFB800","#FF3D8A","#D8FF3E"];
+  for(let i=0;i<90;i++){ const d=document.createElement("div"); d.className="confetti-piece"; d.style.left=Math.random()*100+"vw"; d.style.background=colors[i%colors.length]; d.style.animationDuration=(2+Math.random()*2)+"s"; d.style.borderRadius=Math.random()>0.5?"50%":"3px"; box.appendChild(d); setTimeout(()=>d.remove(),4500); }
+}
+
+/* ============ SEARCH ============ */
+function toggleSearch(open){
+  const o=document.getElementById("searchOverlay");
+  if(open){ o.classList.remove("hidden"); document.body.style.overflow="hidden"; setTimeout(()=>document.getElementById("globalSearch").focus(),50); renderSearchResults(""); }
+  else { o.classList.add("hidden"); document.body.style.overflow=""; }
+}
+function renderSearchResults(q){
+  const box=document.getElementById("searchResults");
+  const list=q?PRODUCTS.filter(p=>(p.name+p.category).toLowerCase().includes(q.toLowerCase())).slice(0,6):PRODUCTS.slice(0,4);
+  box.innerHTML=(list.length?list.map(p=>`<div onclick="toggleSearch(false);openQuickView(${p.id})" class="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-cream cursor-pointer transition"><img src="${p.img}" class="w-14 h-14 rounded-xl object-cover"><div class="flex-1 min-w-0"><div class="font-bold text-[14px] truncate">${p.name}</div><div class="text-[12px] text-gray-500">${p.category} • ★ ${p.rating}</div></div><div class="font-display font-bold text-qnt-600">${fmt(p.price)}</div></div>`).join(""):`<div class="text-center py-8 text-gray-400 font-semibold">No results for "${q}"</div>`);
+}
+function quickSearch(q){ toggleSearch(false); searchQ=q; document.getElementById("shopSearch").value=q; activeCat="All"; renderPills(); renderProducts(); document.getElementById("shop").scrollIntoView({behavior:"smooth"}); }
+
+/* ============ REVIEWS ============ */
+let revIdx=0;
+function renderReviews(){
+  document.getElementById("reviewTrack").innerHTML=REVIEWS.map(r=>`<div class="snap-center shrink-0 w-[320px] sm:w-[380px] bg-white/[0.07] border border-white/10 rounded-[22px] p-6 backdrop-blur">
+    <div class="stars">★★★★★</div><p class="text-[14px] text-white/85 leading-relaxed mt-3 min-h-[110px]">"${r.text}"</p>
+    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/10"><img src="${r.img}" class="w-11 h-11 rounded-full object-cover"><div><div class="font-bold text-[14px]">${r.name}</div><div class="text-[12px] text-white/50">${r.city} • Verified Buyer ✓</div></div><span class="ml-auto bg-mint/20 text-mint text-[11px] font-bold px-2.5 py-1 rounded-full">Bought: ${r.product.split(" ").slice(0,2).join(" ")}</span></div></div>`).join("");
+  document.getElementById("reviewDots").innerHTML=REVIEWS.map((_,i)=>`<button onclick="goReview(${i})" class="h-2 rounded-full transition-all ${i===0?'w-8 bg-limex':'w-2 bg-white/30'}"></button>`).join("");
+}
+function scrollReviews(d){ const t=document.getElementById("reviewTrack"); t.scrollBy({left:d*400,behavior:"smooth"}); revIdx=Math.max(0,Math.min(REVIEWS.length-1,revIdx+d)); updateDots(); }
+function goReview(i){ revIdx=i; document.getElementById("reviewTrack").scrollTo({left:i*400,behavior:"smooth"}); updateDots(); }
+function updateDots(){ document.getElementById("reviewDots").innerHTML=REVIEWS.map((_,i)=>`<button onclick="goReview(${i})" class="h-2 rounded-full transition-all ${i===revIdx?'w-8 bg-limex':'w-2 bg-white/30'}"></button>`).join(""); }
+
+/* ============ AUTH ============ */
+function toggleAuth(open){ const o=document.getElementById("authOverlay"); if(open){ o.classList.remove("hidden"); o.classList.add("flex"); } else { o.classList.add("hidden"); o.classList.remove("flex"); } }
+function sendOTP(){
+  const ph=document.getElementById("authPhone").value.trim();
+  if(!/^[6-9]\d{9}$/.test(ph)){ toast("Enter valid 10-digit mobile number","error"); return; }
+  document.getElementById("otpPhone").textContent="+91 "+ph;
+  document.getElementById("authStep1").classList.add("hidden"); document.getElementById("authStep2").classList.remove("hidden");
+  toast(`OTP sent to +91 ${ph} (Demo: 1234)`,"info");
+  let t=30; const iv=setInterval(()=>{ t--; document.getElementById("otpTimer").textContent=t; if(t<=0) clearInterval(iv); },1000);
+  document.querySelectorAll(".otp")[0].focus();
+}
+function moveOTP(el,i){ if(el.value && i<3) document.querySelectorAll(".otp")[i+1].focus(); }
+function verifyOTP(){
+  const code=[...document.querySelectorAll(".otp")].map(i=>i.value).join("");
+  if(code==="1234"){ user={phone:document.getElementById("authPhone").value}; toggleAuth(false); toast(`Welcome to Qntnta.store! 🎉 Login successful`); document.getElementById("authBtn").innerHTML='<i class="fa-solid fa-circle-check text-green-600"></i>'; }
+  else toast("Invalid OTP. Hint: use 1234","error");
+}
+
+/* ============ MISC ============ */
+function toggleMobile(open){ document.getElementById("mobileMenu").classList.toggle("hidden",!open); }
+// Countdown
+let cdEnd=Date.now()+ (5*3600+42*60+18)*1000;
+setInterval(()=>{ let d=Math.max(0,cdEnd-Date.now()); const h=Math.floor(d/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3); document.getElementById("cdH").textContent=String(h).padStart(2,"0"); document.getElementById("cdM").textContent=String(m).padStart(2,"0"); document.getElementById("cdS").textContent=String(s).padStart(2,"0"); if(d<=0) cdEnd=Date.now()+6*3600*1000; },1000);
+// Reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target);} }),{threshold:0.08});
+function observeReveals(){ document.querySelectorAll(".reveal:not(.visible)").forEach(el=>io.observe(el)); }
+// Hero tilt
+document.addEventListener("mousemove",e=>{
+  const card=document.getElementById("tiltCard"); if(!card||window.innerWidth<1024) return;
+  const r=card.getBoundingClientRect(), x=(e.clientX-r.left-r.width/2)/r.width, y=(e.clientY-r.top-r.height/2)/r.height;
+  if(Math.abs(x)<1.2&&Math.abs(y)<1.2) card.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+});
+// Header shadow + back to top
+window.addEventListener("scroll",()=>{
+  document.getElementById("header").classList.toggle("shadow-card",scrollY>10);
+  const b=document.getElementById("backToTop"); const show=scrollY>600; b.classList.toggle("hidden",!show); b.classList.toggle("flex",show);
+});
+document.getElementById("backToTop").onclick=()=>scrollTo({top:0,behavior:"smooth"});
+
+/* ============ EVENTS ============ */
+document.getElementById("cartBtn").onclick=()=>openCart(true);
+document.getElementById("wishlistBtn").onclick=()=>openWishlist(true);
+document.getElementById("searchBtn").onclick=()=>toggleSearch(true);
+document.getElementById("authBtn").onclick=()=>toggleAuth(true);
+document.getElementById("menuBtn").onclick=()=>toggleMobile(true);
+document.getElementById("shopSearch").addEventListener("input",e=>{ searchQ=e.target.value; visibleCount=12; renderProducts(); });
+document.getElementById("sortSelect").addEventListener("change",e=>{ sortBy=e.target.value; renderProducts(); });
+document.getElementById("priceRange").addEventListener("input",e=>{ maxPrice=+e.target.value; document.getElementById("priceLabel").textContent=fmt(maxPrice); visibleCount=12; renderProducts(); });
+document.getElementById("loadMoreBtn").onclick=()=>{ visibleCount+=12; renderProducts(); };
+document.getElementById("gridBtn").onclick=()=>{ isList=false; document.getElementById("gridBtn").className="w-10 h-10 rounded-xl bg-ink text-white flex items-center justify-center"; document.getElementById("listBtn").className="w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center"; renderProducts(); };
+document.getElementById("listBtn").onclick=()=>{ isList=true; document.getElementById("listBtn").className="w-10 h-10 rounded-xl bg-ink text-white flex items-center justify-center"; document.getElementById("gridBtn").className="w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center"; renderProducts(); };
+document.getElementById("globalSearch").addEventListener("input",e=>renderSearchResults(e.target.value));
+document.getElementById("newsletterForm").addEventListener("submit",e=>{ e.preventDefault(); const v=document.getElementById("newsletterEmail").value.trim(); if(!v||v.length<5){ toast("Please enter valid email/mobile","error"); return; } toast("🎉 ₹200 OFF coupon sent! Code: <b>WELCOME200</b>"); document.getElementById("newsletterEmail").value=""; fireConfetti(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeQuickView(); openCart(false); openWishlist(false); toggleSearch(false); closeCheckout(); } });
+
+/* ============ INIT ============ */
+renderCats(); renderPills(); skeleton(); renderReviews(); updateCartUI();
+setTimeout(()=>{ renderProducts(); observeReveals(); },900);
+observeReveals();
+try{ gsap.registerPlugin(ScrollTrigger); }catch(e){}
+setTimeout(()=>toast("🎉 Welcome to <b>Qntnta.store</b>! Use code <b>QNTNTA10</b> for 10% OFF"),1500);
+setInterval(()=>{ if(document.getElementById("reviewTrack")){ revIdx=(revIdx+1)%REVIEWS.length; document.getElementById("reviewTrack").scrollTo({left:revIdx*400,behavior:"smooth"}); updateDots(); } },6000);
+</script>
+</body>
+</html>
